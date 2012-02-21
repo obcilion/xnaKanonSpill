@@ -16,7 +16,7 @@ namespace kanonSpill
     class Ball : GameObject
     {
         Vector2 velocity = Vector2.Zero;
-        float friction = 0.995f;
+        float friction = 0.993f;
         float radius = 16f;
 
         Vector2 initialVelocity;
@@ -30,7 +30,7 @@ namespace kanonSpill
             initialVelocity = new Vector2(57, 50);
             initialVelocity.Normalize();
 
-            initialVelocity *= 7;
+            initialVelocity *= 10;
             velocity = initialVelocity;
         }
 
@@ -38,6 +38,8 @@ namespace kanonSpill
         {
             wallCollisionCheck();
             velocity *= friction;
+
+            if (velocity.Length() > 0.1)
             position += velocity;
 
 
@@ -75,7 +77,7 @@ namespace kanonSpill
         public void Draw(SpriteBatch spriteBatch)
         {
             spriteBatch.Begin();
-            spriteBatch.Draw(texture, position, Color.White);
+            spriteBatch.Draw(texture, position - new Vector2(radius, radius), Color.White);
             spriteBatch.End();
         }
     }

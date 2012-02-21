@@ -15,22 +15,27 @@ namespace kanonSpill
     class Cannon : GameObject
     {
 
+        Vector2 aim = Vector2.Zero;
+        bool hasShot = false;
+        Vector2 position;
+
         public Cannon(Texture2D texture, Vector2 position)
             : base(texture, position)
         {
-            Position = position;
+
         }
 
-        public Vector2 Position 
+        public void update()
         {
-            get { return position; }
-
-            set { Position = value; }
+            if()
         }
 
-        public Vector2 GetPosition() 
+        public void Draw(SpriteBatch spriteBatch)
         {
-            return position;
+            spriteBatch.Begin();
+
+            spriteBatch.End();
         }
+
     }
 }

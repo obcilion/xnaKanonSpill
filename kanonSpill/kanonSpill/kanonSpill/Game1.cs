@@ -56,7 +56,7 @@ namespace kanonSpill
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
             // TODO: use this.Content to load your game content here
-            texture = Content.Load<Texture2D>(@"Images\Ball");
+            texture = Content.Load<Texture2D>(@"Images\ball");
             ball = new Ball(texture);
         }
 

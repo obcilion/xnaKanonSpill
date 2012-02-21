@@ -4,3 +4,4 @@ C:\Users\Jan Arild\Dropbox\Innlevering 1\kanonSpill\kanonSpill\kanonSpillContent
 C:\Users\Ketil\Dropbox\Xna\Innlevering 1\kanonSpill\kanonSpill\kanonSpillContent\obj\x86\Debug\ResolveAssemblyReference.cache
 C:\Users\Jørund\Dropbox\Innlevering 1\kanonSpill\kanonSpill\kanonSpillContent\obj\x86\Debug\ResolveAssemblyReference.cache
 C:\Users\Obcilion\Dropbox\NITH\XNA\Innlevering 1\kanonSpill\kanonSpill\kanonSpillContent\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\Ketil\Desktop\Xna\XnaKanonSpill\kanonSpill\kanonSpill\kanonSpillContent\obj\x86\Debug\ResolveAssemblyReference.cache

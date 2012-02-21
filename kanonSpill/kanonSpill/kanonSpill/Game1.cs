@@ -25,6 +25,8 @@ namespace kanonSpill
         float speed1 = 2f;
         float speed2 = 2f;
 
+        Ball ball;
+
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
@@ -54,7 +56,8 @@ namespace kanonSpill
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
             // TODO: use this.Content to load your game content here
-            texture = Content.Load<Texture2D>(@"Images\Ball");
+            texture = Content.Load<Texture2D>(@"Images\ball");
+            ball = new Ball(texture);
         }
 
         /// <summary>
@@ -81,11 +84,14 @@ namespace kanonSpill
             }
 
             // TODO: Add your update logic here
+            /*
             pos1.X += speed1;
             if (pos1.X > Window.ClientBounds.Width - texture.Width || pos1.X < 0) speed1 *= -1;
 
             pos2.Y += speed2;
             if (pos2.Y > Window.ClientBounds.Height - texture.Height || pos2.Y < 0) speed2 *= -1;
+            */
+            ball.update();
 
             base.Update(gameTime);
         }
@@ -99,10 +105,12 @@ namespace kanonSpill
             GraphicsDevice.Clear(Color.Black);
 
             // TODO: Add your drawing code here
-            spriteBatch.Begin();
+            /*spriteBatch.Begin();
             spriteBatch.Draw(texture, pos1, null, Color.White, 0, Vector2.Zero, 1, SpriteEffects.None, 1);
             spriteBatch.Draw(texture, pos2, null, Color.White, 0, Vector2.Zero, 1, SpriteEffects.None, 1);
             spriteBatch.End();
+             */
+            ball.Draw(spriteBatch);
 
             base.Draw(gameTime);
         }

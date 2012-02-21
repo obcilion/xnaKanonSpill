@@ -12,6 +12,7 @@ using Microsoft.Xna.Framework.Media;
 
 namespace kanonSpill
 {
+    //Test oipojpogajiipjopjiaepirjgpojeoafijeoaijfoieiorj
 
     class Ball : GameObject
     {

@@ -14,6 +14,7 @@ namespace kanonSpill
 {
     //Test oipojpogajiipjopjiaepirjgpojeoafijeoaijfoieiorj
     //waz up?
+    //no much...
 
     class Ball : GameObject
     {

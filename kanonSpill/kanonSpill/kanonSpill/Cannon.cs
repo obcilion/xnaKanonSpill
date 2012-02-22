@@ -21,10 +21,10 @@ namespace kanonSpill
         bool dragging = false;
         private float RotationAngle;
         Vector2 origin;
-        
+        static float bottom = 782f;
 
         public Cannon(Texture2D texture)
-            :base(texture, new Vector2(300, 420))
+            :base(texture, new Vector2(300, bottom))
         { 
             cannonRect = new Rectangle((int)position.X-16, (int)position.Y-16, texture.Width, texture.Height);
             origin.X = texture.Width / 2;
@@ -51,7 +51,7 @@ namespace kanonSpill
             if(dragging)
             {
 
-                position = new Vector2(Mouse.GetState().X, 420);
+                position = new Vector2(Mouse.GetState().X, bottom);
                 cannonRect = new Rectangle((int)position.X-16, (int)position.Y-16, texture.Width, texture.Height);
             }
         }

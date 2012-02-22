@@ -19,13 +19,15 @@ namespace kanonSpill
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
-        Texture2D texture;
+        Texture2D niceBallTexture;
+        Texture2D niceCannonTexture;
         Vector2 pos1 = Vector2.Zero;
         Vector2 pos2 = Vector2.Zero;
         float speed1 = 2f;
         float speed2 = 2f;
 
-        Ball ball;
+        Ball niceBall;
+        Cannon niceCannon;
 
         public Game1()
         {
@@ -42,6 +44,7 @@ namespace kanonSpill
         protected override void Initialize()
         {
             // TODO: Add your initialization logic here
+            this.IsMouseVisible = true;
 
             base.Initialize();
         }
@@ -56,8 +59,12 @@ namespace kanonSpill
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
             // TODO: use this.Content to load your game content here
-            texture = Content.Load<Texture2D>(@"Images\ball");
-            ball = new Ball(texture);
+            niceBallTexture = Content.Load<Texture2D>(@"Images\ball");
+            niceCannonTexture = Content.Load<Texture2D>(@"Images\kanon");
+
+            niceBall = new Ball(niceBallTexture);
+            niceCannon = new Cannon(niceCannonTexture);
+
         }
 
         /// <summary>
@@ -91,7 +98,8 @@ namespace kanonSpill
             pos2.Y += speed2;
             if (pos2.Y > Window.ClientBounds.Height - texture.Height || pos2.Y < 0) speed2 *= -1;
             */
-            ball.update();
+            niceBall.update();
+            niceCannon.update();
 
             base.Update(gameTime);
         }
@@ -110,8 +118,8 @@ namespace kanonSpill
             spriteBatch.Draw(texture, pos2, null, Color.White, 0, Vector2.Zero, 1, SpriteEffects.None, 1);
             spriteBatch.End();
              */
-            ball.Draw(spriteBatch);
-
+            niceBall.Draw(spriteBatch);
+            niceCannon.Draw(spriteBatch);
             base.Draw(gameTime);
         }
     }

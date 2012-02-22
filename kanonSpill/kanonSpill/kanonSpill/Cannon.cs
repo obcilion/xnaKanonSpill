@@ -17,25 +17,26 @@ namespace kanonSpill
 
         Vector2 aim = Vector2.Zero;
         bool hasShot = false;
-        Vector2 position;
         Rectangle cannonRect;
 
-        public Cannon(Texture2D texture, Vector2 position)
-            : base(texture, position)
-        {
-            cannonRect = new Rectangle(position.X, position.Y, texture.Width, texture.Height);
+        public Cannon(Texture2D texture)
+            :base(texture, new Vector2(300, 420))
+        { 
+            cannonRect = new Rectangle((int)position.X, (int)position.Y, texture.Width, texture.Height);
         }
 
         public void update()
         {
-            if (cannonRect.Contains(Mouse.GetState()) && Mouse.GetState().LeftButton == ButtonState.Pressed)
-                position = new Vector2(Mouse.GetState().X, 400);
+            if (cannonRect.Contains(Mouse.GetState().X, Mouse.GetState().Y) && Mouse.GetState().LeftButton == ButtonState.Pressed)
+                position = new Vector2(Mouse.GetState().X, 420);
+
+                cannonRect = new Rectangle((int)position.X, (int)position.Y, texture.Width, texture.Height);
         }
 
         public void Draw(SpriteBatch spriteBatch)
         {
             spriteBatch.Begin();
-
+            spriteBatch.Draw(texture, position, Color.White);
             spriteBatch.End();
         }
 

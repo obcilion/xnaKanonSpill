@@ -18,13 +18,17 @@ namespace kanonSpill
         Vector2 aim = Vector2.Zero;
         bool hasShot = false;
         Rectangle cannonRect;
-        bool dragging = false;
+        bool placing = false;
+        bool aiming = false;
         private float RotationAngle;
         Vector2 origin;
         static float bottom = 782f;
+        static float middle = 240;
+
+        MouseState mouse = Mouse.GetState();
 
         public Cannon(Texture2D texture)
-            :base(texture, new Vector2(300, bottom))
+            :base(texture, new Vector2(middle, bottom))
         { 
             cannonRect = new Rectangle((int)position.X-16, (int)position.Y-16, texture.Width, texture.Height);
             origin.X = texture.Width / 2;
@@ -33,25 +37,33 @@ namespace kanonSpill
 
         public void update(GameTime gameTime)
         {
-            if (Mouse.GetState().LeftButton == ButtonState.Pressed)
+            mouse = Mouse.GetState();
+
+            if (mouse.LeftButton == ButtonState.Released)
             {
-                if (cannonRect.Contains(Mouse.GetState().X, Mouse.GetState().Y))
-                    dragging = true;
-                else if(!dragging)
-                {
-                    RotationAngle = (float)Math.Atan2(Mouse.GetState().Y - position.Y, Mouse.GetState().X - position.X);
-                    RotationAngle += MathHelper.Pi / 2;
-                    float circle = MathHelper.Pi * 2;
-                    RotationAngle = RotationAngle % circle;
-                }
+                aiming = false;
+                placing = false;
             }
-            if(dragging && Mouse.GetState().LeftButton == ButtonState.Released) 
-                       dragging = false;
 
-            if(dragging)
+            if (!placing && !aiming && mouse.LeftButton == ButtonState.Pressed)
             {
+                if (cannonRect.Contains(mouse.X, mouse.Y))
+                    placing = true;
+                else 
+                    aiming = true;     
+            }
 
-                position = new Vector2(Mouse.GetState().X, bottom);
+            if (aiming)
+            {
+                RotationAngle = (float)Math.Atan2(mouse.Y - position.Y, mouse.X - position.X);
+                RotationAngle += MathHelper.Pi / 2;
+                float circle = MathHelper.Pi * 2;
+                RotationAngle = RotationAngle % circle;           
+            }     
+
+            if(placing)
+            {
+                position = new Vector2(mouse.X, bottom);
                 cannonRect = new Rectangle((int)position.X-16, (int)position.Y-16, texture.Width, texture.Height);
             }
         }

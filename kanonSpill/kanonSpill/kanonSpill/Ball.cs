@@ -48,9 +48,9 @@ namespace kanonSpill
         private void wallCollisionCheck()
         {
 
-            if (position.X > 800f - radius)
+            if (position.X > 480f - radius)
             {
-                position.X = 800f - radius;
+                position.X = 480f - radius;
                 velocity *= new Vector2(-1, 1);
             }
             else if (position.X < radius)
@@ -60,9 +60,9 @@ namespace kanonSpill
             }
 
             
-            if (position.Y > 480f - radius)
+            if (position.Y > 800f - radius)
             {
-                position.Y = 480f - radius;
+                position.Y = 800f - radius;
                 velocity *= new Vector2(1, -1);
             }
             else if (position.Y < radius)

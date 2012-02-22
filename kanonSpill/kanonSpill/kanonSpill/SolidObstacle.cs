@@ -17,14 +17,26 @@ namespace kanonSpill
     {
         float height;
         float width;
-        Vector2 position;
+        Rectangle obstacle;
 
-
-        public SolidObstacle(Texture2D texture, position, float height, float width)
+        public SolidObstacle(Texture2D texture, Vector2 position, int height, int width)
             :base(texture, position)
         {
-            
+            this.height = height;
+            this.width = width;
+            obstacle = new Rectangle((int)position.X, (int)position.Y, height, width);
         }
 
+        public abstract void update()
+        {
+
+        }
+
+        public abstract void Draw(SpriteBatch spriteBatch)
+        {
+            spriteBatch.Begin();
+            spriteBatch.Draw(texture, position, Color.White);
+            spriteBatch.End();
+        }
     }
 }

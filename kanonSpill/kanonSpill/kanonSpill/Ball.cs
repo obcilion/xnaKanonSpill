@@ -18,6 +18,8 @@ namespace kanonSpill
         Vector2 velocity = Vector2.Zero;
         float friction = 0.993f;
         float radius = 16f;
+        float screenWidth = 480f;
+        float screenHeight = 800f;
 
         Vector2 initialVelocity;
 
@@ -48,9 +50,9 @@ namespace kanonSpill
         private void wallCollisionCheck()
         {
 
-            if (position.X > 480f - radius)
+            if (position.X > screenWidth - radius)
             {
-                position.X = 480f - radius;
+                position.X = screenWidth - radius;
                 velocity *= new Vector2(-1, 1);
             }
             else if (position.X < radius)
@@ -60,9 +62,9 @@ namespace kanonSpill
             }
 
             
-            if (position.Y > 800f - radius)
+            if (position.Y > screenHeight - radius)
             {
-                position.Y = 800f - radius;
+                position.Y = screenHeight - radius;
                 velocity *= new Vector2(1, -1);
             }
             else if (position.Y < radius)

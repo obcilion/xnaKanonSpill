@@ -99,7 +99,7 @@ namespace kanonSpill
             if (pos2.Y > Window.ClientBounds.Height - texture.Height || pos2.Y < 0) speed2 *= -1;
             */
             niceBall.update();
-            niceCannon.update();
+            niceCannon.update(gameTime);
 
             base.Update(gameTime);
         }

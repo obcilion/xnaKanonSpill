@@ -13,24 +13,22 @@ using Microsoft.Xna.Framework.Media;
 namespace kanonSpill
 {
 
-    class MovingObstacle : GameObject
+    class MovingObstacle : SolidObstacle
     {
-        float height;
-        float width;
+        
         float velocity;
         char axis;
         float distance;
         float distanceMoved;
-        boolean direction = true;
+        bool direction = true;
         
 
-        public MovingObstacle(Texture2D texture, Vector2 position, float height, float width, float velocity, char axis)
-            :base(texture, position)
+        public MovingObstacle(Texture2D texture, Vector2 position, int height, int width, float velocity, char axis, float distance)
+            :base(texture, position, height, width)
         {
-            this.height = height;
-            this.width = width;
             this.velocity = velocity;
             this.axis = axis;
+            this.distance = distance;
 
         }
 

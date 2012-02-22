@@ -27,12 +27,12 @@ namespace kanonSpill
             obstacle = new Rectangle((int)position.X, (int)position.Y, height, width);
         }
 
-        public abstract void update()
+        public void update()
         {
 
         }
 
-        public abstract void Draw(SpriteBatch spriteBatch)
+        public void Draw(SpriteBatch spriteBatch)
         {
             spriteBatch.Begin();
             spriteBatch.Draw(texture, position, Color.White);

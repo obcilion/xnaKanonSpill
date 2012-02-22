@@ -19,34 +19,50 @@ namespace kanonSpill
         bool hasShot = false;
         Rectangle cannonRect;
         bool dragging = false;
+        private float RotationAngle;
+        Vector2 origin;
+        
 
         public Cannon(Texture2D texture)
-            :base(texture, new Vector2(300-16, 420-16))
+            :base(texture, new Vector2(300, 420))
         { 
-            cannonRect = new Rectangle((int)position.X, (int)position.Y, texture.Width, texture.Height);
+            cannonRect = new Rectangle((int)position.X-16, (int)position.Y-16, texture.Width, texture.Height);
+            origin.X = texture.Width / 2;
+            origin.Y = texture.Height / 2;
         }
 
-        public void update()
+        public void update(GameTime gameTime)
         {
-            if (cannonRect.Contains(Mouse.GetState().X, Mouse.GetState().Y) && Mouse.GetState().LeftButton == ButtonState.Pressed)
-                dragging = true;
-            if(dragging && Mouse.GetState().LeftButton == ButtonState.Released)
-                dragging = false;
+            if (Mouse.GetState().LeftButton == ButtonState.Pressed)
+            {
+                if (cannonRect.Contains(Mouse.GetState().X, Mouse.GetState().Y))
+                    dragging = true;
+                else if(!dragging)
+                {
+                    RotationAngle = (float)Math.Atan2(Mouse.GetState().Y - position.Y, Mouse.GetState().X - position.X);
+                    RotationAngle += MathHelper.Pi / 2;
+                    float circle = MathHelper.Pi * 2;
+                    RotationAngle = RotationAngle % circle;
+                }
+            }
+            if(dragging && Mouse.GetState().LeftButton == ButtonState.Released) 
+                       dragging = false;
 
             if(dragging)
             {
 
-                position = new Vector2(Mouse.GetState().X - 16, 420-16);
-                cannonRect = new Rectangle((int)position.X, (int)position.Y, texture.Width, texture.Height);
+                position = new Vector2(Mouse.GetState().X, 420);
+                cannonRect = new Rectangle((int)position.X-16, (int)position.Y-16, texture.Width, texture.Height);
             }
         }
 
         public void Draw(SpriteBatch spriteBatch)
         {
             spriteBatch.Begin();
-            spriteBatch.Draw(texture, position, Color.White);
+            spriteBatch.Draw(texture, position,null, Color.White, RotationAngle,origin, 1.0f, SpriteEffects.None, 0f);
             spriteBatch.End();
         }
+
 
     }
 }

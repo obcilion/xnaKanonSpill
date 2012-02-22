@@ -33,6 +33,8 @@ namespace kanonSpill
         {
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
+            graphics.PreferredBackBufferHeight = 800;
+            graphics.PreferredBackBufferWidth = 480;
         }
 
         /// <summary>

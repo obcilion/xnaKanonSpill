@@ -16,14 +16,15 @@ namespace kanonSpill
     {
 
         Vector2 aim = Vector2.Zero;
-        bool hasShot = false;
+        public bool HasShot = false;
         Rectangle cannonRect;
-        bool placing = false;
-        bool aiming = false;
+        public bool placing = false;
+        public bool aiming = false;
         private float RotationAngle;
         Vector2 origin;
         static float bottom = 782f;
         static float middle = 240;
+        public Vector2 direction;
 
         MouseState mouse = Mouse.GetState();
 
@@ -35,6 +36,12 @@ namespace kanonSpill
             origin.Y = texture.Height / 2;
         }
 
+        public Vector2 GetPosition()
+        {
+            return position;
+        }
+
+        
         public void update(GameTime gameTime)
         {
             mouse = Mouse.GetState();
@@ -55,6 +62,8 @@ namespace kanonSpill
 
             if (aiming)
             {
+                direction = new Vector2(mouse.Y - position.Y, mouse.X - position.X);
+                direction.Normalize();
                 RotationAngle = (float)Math.Atan2(mouse.Y - position.Y, mouse.X - position.X);
                 RotationAngle += MathHelper.Pi / 2;
                 float circle = MathHelper.Pi * 2;

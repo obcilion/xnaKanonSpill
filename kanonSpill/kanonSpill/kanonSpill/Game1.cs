@@ -23,6 +23,9 @@ namespace kanonSpill
         Ball niceBall;
         Cannon niceCannon;
 
+        Rectangle fireButton;
+        Texture2D fireButtonTexture;
+
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
@@ -57,9 +60,11 @@ namespace kanonSpill
             // TODO: use this.Content to load your game content here
             Texture2D niceBallTexture = Content.Load<Texture2D>(@"Images\ball");
             Texture2D niceCannonTexture = Content.Load<Texture2D>(@"Images\kanon");
+            fireButtonTexture = Content.Load<Texture2D>(@"Images\Fire!");
 
-            niceBall = new Ball(niceBallTexture);
+            fireButton = new Rectangle(480 - 64, 450, 64, 128);
             niceCannon = new Cannon(niceCannonTexture);
+            niceBall = new Ball(niceBallTexture, niceCannon);
 
         }
 
@@ -86,6 +91,10 @@ namespace kanonSpill
                 this.Exit();
             }
 
+            if (!niceCannon.placing && !niceCannon.aiming &&
+                Mouse.GetState().LeftButton == ButtonState.Pressed &&
+                fireButton.Contains(Mouse.GetState().X, Mouse.GetState().Y))
+                niceCannon.HasShot = true;
             
             niceBall.update();
             niceCannon.update(gameTime);
@@ -101,8 +110,20 @@ namespace kanonSpill
         {
             GraphicsDevice.Clear(Color.Green);
 
+            if (!niceCannon.HasShot)
+            {
+                spriteBatch.Begin();
+                spriteBatch.Draw(fireButtonTexture, fireButton, Color.White);
+                spriteBatch.End();
+            }
+
+            if(niceCannon.HasShot)
             niceBall.Draw(spriteBatch);
+
+            if(!niceCannon.HasShot)
             niceCannon.Draw(spriteBatch);
+
+            
 
             base.Draw(gameTime);
         }

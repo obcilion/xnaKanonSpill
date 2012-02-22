@@ -24,14 +24,13 @@ namespace kanonSpill
         Vector2 initialVelocity;
 
 
-        public Ball(Texture2D texture)  
-            :base(texture, new Vector2(50, 50))
+        public Ball(Texture2D texture, Cannon cannon)  
+            :base(texture, cannon.GetPosition()  -new Vector2(16, 16))
         {
            
-            //initialVelocity = (cannon.Position - (new Vector2(Mouse.GetState().X, Mouse.GetState().Y)));
-            initialVelocity = new Vector2(34, 79);
-            initialVelocity.Normalize();
-
+            //initialVelocity = (cannon.GetPosition() - new Vector2(16, 16) - (new Vector2(Mouse.GetState().X, Mouse.GetState().Y)));
+            //initialVelocity.Normalize();
+            initialVelocity = cannon.direction;
             initialVelocity *= 10;
             velocity = initialVelocity;
         }

@@ -18,16 +18,18 @@ namespace kanonSpill
         Vector2 aim = Vector2.Zero;
         bool hasShot = false;
         Vector2 position;
+        Rectangle cannonRect;
 
         public Cannon(Texture2D texture, Vector2 position)
             : base(texture, position)
         {
-
+            cannonRect = new Rectangle(position.X, position.Y, texture.Width, texture.Height);
         }
 
         public void update()
         {
-            if()
+            if (cannonRect.Contains(Mouse.GetState()) && Mouse.GetState().LeftButton == ButtonState.Pressed)
+                position = new Vector2(Mouse.GetState().X, 400);
         }
 
         public void Draw(SpriteBatch spriteBatch)

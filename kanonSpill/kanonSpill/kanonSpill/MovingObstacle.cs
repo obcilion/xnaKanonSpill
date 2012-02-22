@@ -21,7 +21,7 @@ namespace kanonSpill
         char axis;
         float distance;
         float distanceMoved;
-        boolean direction = true;
+        bool direction = true;
         
 
         public MovingObstacle(Texture2D texture, Vector2 position, float height, float width, float velocity, char axis)

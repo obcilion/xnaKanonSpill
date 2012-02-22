@@ -19,12 +19,6 @@ namespace kanonSpill
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
-        Texture2D niceBallTexture;
-        Texture2D niceCannonTexture;
-        Vector2 pos1 = Vector2.Zero;
-        Vector2 pos2 = Vector2.Zero;
-        float speed1 = 2f;
-        float speed2 = 2f;
 
         Ball niceBall;
         Cannon niceCannon;
@@ -59,8 +53,8 @@ namespace kanonSpill
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
             // TODO: use this.Content to load your game content here
-            niceBallTexture = Content.Load<Texture2D>(@"Images\ball");
-            niceCannonTexture = Content.Load<Texture2D>(@"Images\kanon");
+            Texture2D niceBallTexture = Content.Load<Texture2D>(@"Images\ball");
+            Texture2D niceCannonTexture = Content.Load<Texture2D>(@"Images\kanon");
 
             niceBall = new Ball(niceBallTexture);
             niceCannon = new Cannon(niceCannonTexture);
@@ -90,14 +84,7 @@ namespace kanonSpill
                 this.Exit();
             }
 
-            // TODO: Add your update logic here
-            /*
-            pos1.X += speed1;
-            if (pos1.X > Window.ClientBounds.Width - texture.Width || pos1.X < 0) speed1 *= -1;
-
-            pos2.Y += speed2;
-            if (pos2.Y > Window.ClientBounds.Height - texture.Height || pos2.Y < 0) speed2 *= -1;
-            */
+            
             niceBall.update();
             niceCannon.update(gameTime);
 
@@ -112,14 +99,9 @@ namespace kanonSpill
         {
             GraphicsDevice.Clear(Color.Green);
 
-            // TODO: Add your drawing code here
-            /*spriteBatch.Begin();
-            spriteBatch.Draw(texture, pos1, null, Color.White, 0, Vector2.Zero, 1, SpriteEffects.None, 1);
-            spriteBatch.Draw(texture, pos2, null, Color.White, 0, Vector2.Zero, 1, SpriteEffects.None, 1);
-            spriteBatch.End();
-             */
             niceBall.Draw(spriteBatch);
             niceCannon.Draw(spriteBatch);
+
             base.Draw(gameTime);
         }
     }

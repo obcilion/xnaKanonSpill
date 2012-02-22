@@ -27,7 +27,7 @@ namespace kanonSpill
         {
            
             //initialVelocity = (cannon.Position - (new Vector2(Mouse.GetState().X, Mouse.GetState().Y)));
-            initialVelocity = new Vector2(57, 50);
+            initialVelocity = new Vector2(34, 79);
             initialVelocity.Normalize();
 
             initialVelocity *= 10;

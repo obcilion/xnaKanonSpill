@@ -26,7 +26,8 @@ namespace CannonGame
         static float middle = 240;
         public Vector2 direction;
 
-        MouseState mouse = Mouse.GetState();
+        FrameInfo FrameInfo = FrameInfo.Instance;
+
 
         public Cannon(Texture2D texture)
             :base(texture, new Vector2(middle, bottom))
@@ -44,17 +45,15 @@ namespace CannonGame
         
         public void update(GameTime gameTime)
         {
-            mouse = Mouse.GetState();
-
-            if (mouse.LeftButton == ButtonState.Released)
+            if (FrameInfo.MouseState.LeftButton == ButtonState.Released)
             {
                 aiming = false;
                 placing = false;
             }
 
-            if (!placing && !aiming && mouse.LeftButton == ButtonState.Pressed)
+            if (!placing && !aiming && FrameInfo.MouseState.LeftButton == ButtonState.Pressed)
             {
-                if (cannonRect.Contains(mouse.X, mouse.Y))
+                if (cannonRect.Contains(FrameInfo.MouseState.X, FrameInfo.MouseState.Y))
                     placing = true;
                 else 
                     aiming = true;     
@@ -62,7 +61,7 @@ namespace CannonGame
 
             if (aiming)
             {
-                direction = new Vector2(mouse.Y - position.Y, mouse.X - position.X);
+                direction = new Vector2(FrameInfo.MouseState.Y - position.Y, FrameInfo.MouseState.X - position.X);
                 direction.Normalize();
                 RotationAngle = (float)Math.Atan2(direction.Y, direction.X);
                 RotationAngle += MathHelper.Pi / 2;
@@ -72,7 +71,7 @@ namespace CannonGame
 
             if(placing)
             {
-                position = new Vector2(mouse.X, bottom);
+                position = new Vector2(FrameInfo.MouseState.X, bottom);
                 cannonRect = new Rectangle((int)position.X-16, (int)position.Y-16, texture.Width, texture.Height);
             }
             

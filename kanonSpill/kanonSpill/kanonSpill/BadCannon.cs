@@ -26,8 +26,6 @@ namespace CannonGame
         static float middle = 240;
         public Vector2 direction;
 
-        MouseState mouse = Mouse.GetState();
-
         public BadCannon(Texture2D texture)
             :base(texture, new Vector2(middle, top))
         { 

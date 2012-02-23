@@ -84,6 +84,7 @@
     <Compile Include="Program.cs" />
     <Compile Include="CannonGame.cs" />
     <Compile Include="SolidObstacle.cs" />
+    <Compile Include="Target.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Game.ico" />

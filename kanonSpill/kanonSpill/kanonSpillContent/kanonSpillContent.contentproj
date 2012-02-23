@@ -82,8 +82,8 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Images\skyt.png">
-      <Name>skyt</Name>
+    <Compile Include="Images\Fire!.png">
+      <Name>Fire!</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>

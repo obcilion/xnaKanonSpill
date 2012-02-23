@@ -28,8 +28,8 @@ namespace kanonSpill
             :base(texture, cannon.GetPosition()  -new Vector2(16, 16))
         {
            
-            //initialVelocity = (cannon.GetPosition() - new Vector2(16, 16) - (new Vector2(Mouse.GetState().X, Mouse.GetState().Y)));
-            //initialVelocity.Normalize();
+            initialVelocity = (cannon.GetPosition() - new Vector2(16, 16) - (new Vector2(Mouse.GetState().X, Mouse.GetState().Y)));
+            initialVelocity.Normalize();
             initialVelocity = cannon.direction;
             initialVelocity *= 10;
             velocity = initialVelocity;

@@ -22,5 +22,11 @@ namespace CannonGame
             this.texture = texture;
             this.position = position;
         }
+
+        public Vector2 Position
+        {
+            get;
+            protected set;
+        }
     }
 }

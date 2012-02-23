@@ -10,7 +10,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
 
-namespace cannonGame
+namespace CannonGame
 {
     class Cannon : GameObject
     {
@@ -64,7 +64,7 @@ namespace cannonGame
             {
                 direction = new Vector2(mouse.Y - position.Y, mouse.X - position.X);
                 direction.Normalize();
-                RotationAngle = (float)Math.Atan2(mouse.Y - position.Y, mouse.X - position.X);
+                RotationAngle = (float)Math.Atan2(direction.Y, direction.X);
                 RotationAngle += MathHelper.Pi / 2;
                 float circle = MathHelper.Pi * 2;
                 RotationAngle = RotationAngle % circle;           
@@ -75,13 +75,15 @@ namespace cannonGame
                 position = new Vector2(mouse.X, bottom);
                 cannonRect = new Rectangle((int)position.X-16, (int)position.Y-16, texture.Width, texture.Height);
             }
+            
         }
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            spriteBatch.Begin();
+
+            /*spriteBatch.Begin();
             spriteBatch.Draw(texture, position,null, Color.White, RotationAngle,origin, 1.0f, SpriteEffects.None, 0f);
-            spriteBatch.End();
+            spriteBatch.End();*/
         }
 
 

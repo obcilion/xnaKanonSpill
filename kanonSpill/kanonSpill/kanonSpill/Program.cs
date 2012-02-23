@@ -1,6 +1,6 @@
 using System;
 
-namespace cannonGame
+namespace CannonGame
 {
 #if WINDOWS || XBOX
     static class Program

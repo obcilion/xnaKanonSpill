@@ -73,9 +73,7 @@
       <Processor>TextureProcessor</Processor>
     </Compile>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Models\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Compile Include="Images\LameBakgrunnSidenFolkIkkeBlirFornøydNårJegLagerFinSol.png">
       <Name>LameBakgrunnSidenFolkIkkeBlirFornøydNårJegLagerFinSol</Name>

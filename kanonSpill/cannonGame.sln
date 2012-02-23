@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual Studio 2010
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "kanonSpill", "kanonSpill\kanonSpill\kanonSpill.csproj", "{1FF2BD82-8A8B-4FC8-929E-83B8B56BC5FA}"
+# Visual Studio 2010 Express for Windows Phone
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CannonGame", "kanonSpill\kanonSpill\CannonGame.csproj", "{1FF2BD82-8A8B-4FC8-929E-83B8B56BC5FA}"
 EndProject
-Project("{96E2B04D-8817-42C6-938A-82C39BA4D311}") = "kanonSpillContent", "kanonSpill\kanonSpillContent\kanonSpillContent.contentproj", "{49310CF7-CC4F-454F-AA98-080E5F373ADF}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CannonGameContent", "kanonSpill\kanonSpillContent\CannonGameContent.contentproj", "{49310CF7-CC4F-454F-AA98-080E5F373ADF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

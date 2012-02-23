@@ -1,6 +1,6 @@
 using System;
 
-namespace kanonSpill
+namespace cannonGame
 {
 #if WINDOWS || XBOX
     static class Program
@@ -10,7 +10,7 @@ namespace kanonSpill
         /// </summary>
         static void Main(string[] args)
         {
-            using (Game1 game = new Game1())
+            using (CannonGame game = new CannonGame())
             {
                 game.Run();
             }

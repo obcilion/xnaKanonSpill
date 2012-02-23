@@ -10,7 +10,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
 
-namespace kanonSpill
+namespace cannonGame
 {
     
     class Ball : GameObject
@@ -22,6 +22,7 @@ namespace kanonSpill
         float screenHeight = 800f;
 
         Vector2 initialVelocity;
+        Cannon cannon;
 
 
         public Ball(Texture2D texture, Cannon cannon)  
@@ -33,10 +34,14 @@ namespace kanonSpill
             initialVelocity = cannon.direction;
             initialVelocity *= 10;
             velocity = initialVelocity;
+            this.cannon = cannon;
         }
 
         public void update() 
         {
+            initialVelocity = cannon.direction;
+            initialVelocity *= 10;
+            velocity = initialVelocity;
             wallCollisionCheck();
             velocity *= friction;
 

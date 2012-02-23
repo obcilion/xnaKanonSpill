@@ -9,29 +9,53 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
 
-namespace kanonSpill
+namespace cannonGame
 {
     /// <summary>
     /// This is the main type for your game
     /// </summary>
-    /// //whatattttatastastastrsafdsadasdasd
-    public class Game1 : Microsoft.Xna.Framework.Game
+    public class CannonGame : Microsoft.Xna.Framework.Game
     {
-        GraphicsDeviceManager graphics;
-        SpriteBatch spriteBatch;
+        public static CannonGame Instance = null;
 
-        Ball niceBall;
-        Cannon niceCannon;
+        public GraphicsDeviceManager Graphics;
+        public SpriteBatch SpriteBatch;
 
-        Rectangle fireButton;
-        Texture2D fireButtonTexture;
+        FrameInfo FrameInfo = FrameInfo.Instance;
 
-        public Game1()
+        List<GameState> GameStates = new List<GameState>();
+        GameState ActiveGameState = null;
+
+        GameState NextState = null;
+
+        //Ball niceBall;
+        //Cannon niceCannon;
+
+        //Rectangle fireButton;
+        //Texture2D fireButtonTexture;
+        public static void ChangeState(int index)
         {
-            graphics = new GraphicsDeviceManager(this);
+            if (index < CannonGame.Instance.GameStates.Count)
+            {
+                CannonGame.Instance.NextState = CannonGame.Instance.GameStates[index];
+            }
+        }
+
+        public CannonGame()
+        {
+            Graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
-            graphics.PreferredBackBufferHeight = 800;
-            graphics.PreferredBackBufferWidth = 480;
+
+            Graphics.PreferredBackBufferWidth = 800;
+            Graphics.PreferredBackBufferHeight = 480;
+
+            //Gjør musepekeren synlig
+            IsMouseVisible = true;
+
+            //Dette gjør at telefonen fungerer i begge landskapsmodusene.
+            Graphics.SupportedOrientations = DisplayOrientation.Portrait;
+
+            Instance = this;
         }
 
         /// <summary>
@@ -55,16 +79,21 @@ namespace kanonSpill
         protected override void LoadContent()
         {
             // Create a new SpriteBatch, which can be used to draw textures.
-            spriteBatch = new SpriteBatch(GraphicsDevice);
+            SpriteBatch = new SpriteBatch(GraphicsDevice);
+
+            GameStates.Add(new Menu(SpriteBatch, Content,"LameBakgrunnSidenFolkIkkeBlirFornøydNårJegLagerFinSol"));
+            GameStates.Add(new Level1(SpriteBatch, Content));
+
+            ActiveGameState = GameStates[0];
 
             // TODO: use this.Content to load your game content here
-            Texture2D niceBallTexture = Content.Load<Texture2D>(@"Images\ball");
-            Texture2D niceCannonTexture = Content.Load<Texture2D>(@"Images\kanon");
-            fireButtonTexture = Content.Load<Texture2D>(@"Images\skyt");
+            //Texture2D niceBallTexture = Content.Load<Texture2D>(@"Images\ball");
+            //Texture2D niceCannonTexture = Content.Load<Texture2D>(@"Images\kanon");
+            //Texture2D fireButtonTexture = Content.Load<Texture2D>(@"Images\skyt");
 
-            fireButton = new Rectangle(480 - 64, 450, 64, 128);
-            niceCannon = new Cannon(niceCannonTexture);
-            niceBall = new Ball(niceBallTexture, niceCannon);
+            //fireButton = new Rectangle(480 - 64, 450, 64, 128);
+            //niceCannon = new Cannon(niceCannonTexture);
+            //niceBall = new Ball(niceBallTexture, niceCannon);
 
         }
 
@@ -90,14 +119,26 @@ namespace kanonSpill
             {
                 this.Exit();
             }
+            FrameInfo.GameTime = gameTime;
 
-            if (!niceCannon.placing && !niceCannon.aiming &&
+            //Henter inn mouseState på starten av Update, så den ikke kan endre seg underveis
+            FrameInfo.MouseState = Mouse.GetState();
+
+            if (NextState != null)
+            {
+                ActiveGameState = NextState;
+                NextState = null;
+            }
+
+            ActiveGameState.Update();
+
+            /*if (!niceCannon.placing && !niceCannon.aiming &&
                 Mouse.GetState().LeftButton == ButtonState.Pressed &&
                 fireButton.Contains(Mouse.GetState().X, Mouse.GetState().Y))
                 niceCannon.HasShot = true;
             
             niceBall.update();
-            niceCannon.update(gameTime);
+            niceCannon.update(gameTime);*/
 
             base.Update(gameTime);
         }
@@ -110,22 +151,30 @@ namespace kanonSpill
         {
             GraphicsDevice.Clear(Color.Green);
 
-            if (!niceCannon.HasShot)
+            SpriteBatch.Begin();
+
+            ActiveGameState.Draw();
+
+            SpriteBatch.End();
+
+            base.Draw(gameTime);
+
+            /*if (!niceCannon.HasShot)
             {
-                spriteBatch.Begin();
-                spriteBatch.Draw(fireButtonTexture, fireButton, Color.White);
-                spriteBatch.End();
+                SpriteBatch.Begin();
+                SpriteBatch.Draw(fireButtonTexture, fireButton, Color.White);
+                SpriteBatch.End();
             }
 
             if(niceCannon.HasShot)
-            niceBall.Draw(spriteBatch);
+            niceBall.Draw(SpriteBatch);
 
             if(!niceCannon.HasShot)
-            niceCannon.Draw(spriteBatch);
+            niceCannon.Draw(SpriteBatch);
 
             
 
-            base.Draw(gameTime);
+            base.Draw(gameTime);*/
         }
     }
 }

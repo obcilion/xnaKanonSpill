@@ -72,6 +72,7 @@
     <Reference Include="System.Net" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BadCannon.cs" />
     <Compile Include="Cannon.cs" />
     <Compile Include="GameObject.cs" />
     <Compile Include="Ball.cs" />

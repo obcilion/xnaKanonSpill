@@ -14,8 +14,12 @@ namespace CannonGame
 {
     public class Cannon : GameObject
     {
+        Rectangle cannonRect;
+        Vector2 origin;
+        public Vector2 Direction;
+        private float rotationAngle;
 
-        Vector2 aim = Vector2.Zero;
+        /*Vector2 aim = Vector2.Zero;
         public bool HasShot = false;
         Rectangle cannonRect;
         public bool placing = false;
@@ -25,36 +29,37 @@ namespace CannonGame
         static float bottom = 784f;
         static float middle = 240;
         public Vector2 direction;
+         */
 
-        MouseState mouse = Mouse.GetState();
 
-        public Cannon(Texture2D texture)
-            :base(texture, new Vector2(middle, bottom))
+        public Cannon(Texture2D texture, Vector2 position,Vector2 direction)
+            :base(texture, position)
         { 
             cannonRect = new Rectangle((int)position.X-16, (int)position.Y-16, texture.Width, texture.Height);
             origin.X = texture.Width / 2;
             origin.Y = texture.Height / 2;
+            this.Direction = direction;
         }
 
-        public Vector2 GetPosition()
-        {
-            return position;
-        }
-
+        public Vector2 Position { get { return position; } set { position = value; } }
         
-        public void update(GameTime gameTime)
+        public void Update()
         {
-            mouse = Mouse.GetState();
-
-            if (mouse.LeftButton == ButtonState.Released)
+            rotationAngle = (float)Math.Atan2(Direction.Y, Direction.X);
+            rotationAngle += MathHelper.Pi / 2;
+            float circle = MathHelper.Pi * 2;
+            rotationAngle = rotationAngle % circle;
+            
+            /*
+            if (FrameInfo.MouseState.LeftButton == ButtonState.Released)
             {
                 aiming = false;
                 placing = false;
             }
 
-            if (!placing && !aiming && mouse.LeftButton == ButtonState.Pressed)
+            if (!placing && !aiming && FrameInfo.MouseState.LeftButton == ButtonState.Pressed)
             {
-                if (cannonRect.Contains(mouse.X, mouse.Y))
+                if (cannonRect.Contains(FrameInfo.MouseState.X, FrameInfo.MouseState.Y))
                     placing = true;
                 else 
                     aiming = true;     
@@ -62,7 +67,7 @@ namespace CannonGame
 
             if (aiming)
             {
-                direction = new Vector2(mouse.Y - position.Y, mouse.X - position.X);
+                direction = new Vector2(FrameInfo.MouseState.Y - position.Y, FrameInfo.MouseState.X - position.X);
                 direction.Normalize();
                 RotationAngle = (float)Math.Atan2(direction.Y, direction.X);
                 RotationAngle += MathHelper.Pi / 2;
@@ -72,18 +77,15 @@ namespace CannonGame
 
             if(placing)
             {
-                position = new Vector2(mouse.X, bottom);
+                position = new Vector2(FrameInfo.MouseState.X, bottom);
                 cannonRect = new Rectangle((int)position.X-16, (int)position.Y-16, texture.Width, texture.Height);
-            }
+            }*/
             
         }
 
         public void Draw(SpriteBatch spriteBatch)
         {
-
-            /*spriteBatch.Begin();
-            spriteBatch.Draw(texture, position,null, Color.White, RotationAngle,origin, 1.0f, SpriteEffects.None, 0f);
-            spriteBatch.End();*/
+            spriteBatch.Draw(texture, position,null, Color.White, rotationAngle,origin, 1.0f, SpriteEffects.None, 0f);
         }
 
 

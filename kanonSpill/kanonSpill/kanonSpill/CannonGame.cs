@@ -84,7 +84,7 @@ namespace CannonGame
             GameStates.Add(new Menu(SpriteBatch, Content,"Images/LameBakgrunnSidenFolkIkkeBlirFornøydNårJegLagerFinSol"));
             GameStates.Add(new GameLevel(SpriteBatch, Content));
 
-            ActiveGameState = GameStates[0];
+            ActiveGameState = GameStates[1];
 
             // TODO: use this.Content to load your game content here
             //Texture2D niceBallTexture = Content.Load<Texture2D>(@"Images\ball");

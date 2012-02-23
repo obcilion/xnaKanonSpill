@@ -15,7 +15,14 @@ namespace CannonGame
     
     class Ball : GameObject
     {
-        Vector2 velocity = Vector2.Zero;
+        public Ball(Texture2D texture) : base(texture,new Vector2(0,0))
+        {
+        }
+        public void update()
+        {
+        }
+
+        /*Vector2 velocity = Vector2.Zero;
         float friction = 0.993f;
         float radius = 16f;
         float screenWidth = 480f;
@@ -85,6 +92,6 @@ namespace CannonGame
             spriteBatch.Begin();
             spriteBatch.Draw(texture, position - new Vector2(radius, radius), Color.White);
             spriteBatch.End();
-        }
+        }*/
     }
 }

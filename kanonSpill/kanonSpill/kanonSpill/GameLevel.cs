@@ -20,6 +20,7 @@ namespace CannonGame
             Instance = this;
             niceCannon = new Cannon(Content.Load<Texture2D>("kanon"));
             badCannon = new Cannon(Content.Load<Texture2D>("slemKanon"));
+            niceBall = new Ball(Content.Load<Texture2D>("ball>"));
 
             
             // TODO: use Content to load your game content here

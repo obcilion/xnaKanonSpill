@@ -10,23 +10,28 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
 
-namespace kanonSpill
+namespace CannonGame
 {
-    class BadCannon : GameObject
+    public class BadCannon : GameObject
     {
 
         Vector2 aim = Vector2.Zero;
+        public bool HasShot = false;
+        Rectangle cannonRect;
+        public bool placing = false;
+        public bool aiming = false;
         private float RotationAngle;
         Vector2 origin;
         static float top = 16f;
         static float middle = 240;
         public Vector2 direction;
 
+        MouseState mouse = Mouse.GetState();
 
-        public Cannon(Texture2D texture)
-            : base(texture, new Vector2(middle, top))
-        {
-            cannonRect = new Rectangle((int)position.X - 16, (int)position.Y - 16, texture.Width, texture.Height);
+        public BadCannon(Texture2D texture)
+            :base(texture, new Vector2(middle, top))
+        { 
+            cannonRect = new Rectangle((int)position.X-16, (int)position.Y-16, texture.Width, texture.Height);
             origin.X = texture.Width / 2;
             origin.Y = texture.Height / 2;
         }
@@ -36,7 +41,7 @@ namespace kanonSpill
             return position;
         }
 
-
+        
         public void update(GameTime gameTime)
         {
             mouse = Mouse.GetState();
@@ -51,32 +56,34 @@ namespace kanonSpill
             {
                 if (cannonRect.Contains(mouse.X, mouse.Y))
                     placing = true;
-                else
-                    aiming = true;
+                else 
+                    aiming = true;     
             }
 
             if (aiming)
             {
                 direction = new Vector2(mouse.Y - position.Y, mouse.X - position.X);
                 direction.Normalize();
-                RotationAngle = (float)Math.Atan2(mouse.Y - position.Y, mouse.X - position.X);
+                RotationAngle = (float)Math.Atan2(direction.Y, direction.X);
                 RotationAngle += MathHelper.Pi / 2;
                 float circle = MathHelper.Pi * 2;
-                RotationAngle = RotationAngle % circle;
-            }
+                RotationAngle = RotationAngle % circle;           
+            }     
 
-            if (placing)
+            if(placing)
             {
-                position = new Vector2(mouse.X, bottom);
-                cannonRect = new Rectangle((int)position.X - 16, (int)position.Y - 16, texture.Width, texture.Height);
+                position = new Vector2(mouse.X, top);
+                cannonRect = new Rectangle((int)position.X-16, (int)position.Y-16, texture.Width, texture.Height);
             }
+            
         }
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            spriteBatch.Begin();
-            spriteBatch.Draw(texture, position, null, Color.White, RotationAngle, origin, 1.0f, SpriteEffects.None, 0f);
-            spriteBatch.End();
+
+            /*spriteBatch.Begin();
+            spriteBatch.Draw(texture, position,null, Color.White, RotationAngle,origin, 1.0f, SpriteEffects.None, 0f);
+            spriteBatch.End();*/
         }
 
 

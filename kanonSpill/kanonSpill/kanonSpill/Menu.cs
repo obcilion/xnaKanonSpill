@@ -17,7 +17,7 @@ namespace CannonGame
         public Menu(SpriteBatch spriteBatch, ContentManager content, String texture)
             : base(spriteBatch, content)
         {
-            MenuTexture = Content.Load<Texture2D>(texture);
+            MenuTexture = content.Load<Texture2D>(texture);
         }
 
         public override void Update()

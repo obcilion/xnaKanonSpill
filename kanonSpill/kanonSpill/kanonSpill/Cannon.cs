@@ -12,7 +12,7 @@ using Microsoft.Xna.Framework.Media;
 
 namespace CannonGame
 {
-    class Cannon : GameObject
+    public class Cannon : GameObject
     {
 
         Vector2 aim = Vector2.Zero;
@@ -22,7 +22,7 @@ namespace CannonGame
         public bool aiming = false;
         private float RotationAngle;
         Vector2 origin;
-        static float bottom = 782f;
+        static float bottom = 784f;
         static float middle = 240;
         public Vector2 direction;
 

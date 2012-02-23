@@ -46,8 +46,8 @@ namespace CannonGame
             Graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
 
-            Graphics.PreferredBackBufferWidth = 800;
-            Graphics.PreferredBackBufferHeight = 480;
+            Graphics.PreferredBackBufferWidth = 480;
+            Graphics.PreferredBackBufferHeight = 800;
 
             //Gjør musepekeren synlig
             IsMouseVisible = true;
@@ -81,7 +81,7 @@ namespace CannonGame
             // Create a new SpriteBatch, which can be used to draw textures.
             SpriteBatch = new SpriteBatch(GraphicsDevice);
 
-            GameStates.Add(new Menu(SpriteBatch, Content,"LameBakgrunnSidenFolkIkkeBlirFornøydNårJegLagerFinSol"));
+            GameStates.Add(new Menu(SpriteBatch, Content,"Images/LameBakgrunnSidenFolkIkkeBlirFornøydNårJegLagerFinSol"));
             GameStates.Add(new GameLevel(SpriteBatch, Content));
 
             ActiveGameState = GameStates[0];

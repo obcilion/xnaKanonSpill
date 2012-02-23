@@ -13,7 +13,7 @@ using Microsoft.Xna.Framework.Media;
 namespace CannonGame
 {
     
-    class Ball : GameObject
+    public class Ball : GameObject
     {
         public Ball(Texture2D texture) : base(texture,new Vector2(0,0))
         {

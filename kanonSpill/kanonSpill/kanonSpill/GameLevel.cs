@@ -12,15 +12,20 @@ namespace CannonGame
     {
         public static GameLevel Instance = null;
         public Cannon niceCannon = null;
-        public Cannon badCannon = null;
+        public BadCannon badCannon = null;
+        public Ball niceBall = null;
+        public Ball badBall = null;
+        public Target target = null;
 
         public GameLevel(SpriteBatch spriteBatch, ContentManager content)
             : base(spriteBatch, content)
         {
             Instance = this;
-            niceCannon = new Cannon(Content.Load<Texture2D>("kanon"));
-            badCannon = new Cannon(Content.Load<Texture2D>("slemKanon"));
-            niceBall = new Ball(Content.Load<Texture2D>("ball>"));
+            niceCannon = new Cannon(Content.Load<Texture2D>("Images/kanon"));
+            badCannon = new BadCannon(Content.Load<Texture2D>("Images/slemKanon"));
+            niceBall = new Ball(Content.Load<Texture2D>("Images/ball"));
+            badBall = new Ball(Content.Load<Texture2D>("Images/slemBall"));
+            target = new Target(Content.Load<Texture2D>("Images/mål"));
 
             
             // TODO: use Content to load your game content here

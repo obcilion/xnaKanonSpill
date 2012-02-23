@@ -73,7 +73,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Cannon.cs" />
-    <Compile Include="Ball2.cs" />
     <Compile Include="FrameInfo.cs" />
     <Compile Include="GameObject.cs" />
     <Compile Include="Ball.cs" />

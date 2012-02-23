@@ -60,7 +60,7 @@ namespace kanonSpill
             // TODO: use this.Content to load your game content here
             Texture2D niceBallTexture = Content.Load<Texture2D>(@"Images\ball");
             Texture2D niceCannonTexture = Content.Load<Texture2D>(@"Images\kanon");
-            fireButtonTexture = Content.Load<Texture2D>(@"Images\Fire!");
+            fireButtonTexture = Content.Load<Texture2D>(@"Images\skyt");
 
             fireButton = new Rectangle(480 - 64, 450, 64, 128);
             niceCannon = new Cannon(niceCannonTexture);

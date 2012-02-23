@@ -82,7 +82,7 @@ namespace cannonGame
             SpriteBatch = new SpriteBatch(GraphicsDevice);
 
             GameStates.Add(new Menu(SpriteBatch, Content,"LameBakgrunnSidenFolkIkkeBlirFornøydNårJegLagerFinSol"));
-            GameStates.Add(new Level1(SpriteBatch, Content));
+            GameStates.Add(new GameLevel(SpriteBatch, Content));
 
             ActiveGameState = GameStates[0];
 

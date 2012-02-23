@@ -8,25 +8,26 @@ using Microsoft.Xna.Framework;
 
 namespace cannonGame
 {
-    public class Level1 : GameState
+    public class GameLevel : GameState
     {
-        public static Level1 Instance = null;
+        public static GameLevel Instance = null;
+        public Cannon niceCannon = null;
+        public Cannon badCannon = null;
 
-        List<GameObject> Objekter = new List<GameObject>();
-
-        List<GameObject> KollisjonsObjekter = new List<GameObject>();
-
-
-        public Level1(SpriteBatch spriteBatch, ContentManager content)
+        public GameLevel(SpriteBatch spriteBatch, ContentManager content)
             : base(spriteBatch, content)
         {
             Instance = this;
+            niceCannon = new Cannon(Content.Load<Texture2D>("kanon"));
+            badCannon = new Cannon(Content.Load<Texture2D>("slemKanon"));
 
+            
             // TODO: use Content to load your game content here
         }
 
         public override void Update()
         {
+
         }
 
         public override void Draw()

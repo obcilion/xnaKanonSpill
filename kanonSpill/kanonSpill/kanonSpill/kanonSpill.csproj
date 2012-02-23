@@ -7,7 +7,7 @@
     <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>kanonSpill</RootNamespace>
+    <RootNamespace>cannonGame</RootNamespace>
     <AssemblyName>kanonSpill</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <TargetFrameworkProfile>Client</TargetFrameworkProfile>
@@ -72,14 +72,17 @@
     <Reference Include="System.Net" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BadCannon.cs" />
     <Compile Include="Cannon.cs" />
+    <Compile Include="FrameInfo.cs" />
     <Compile Include="GameObject.cs" />
     <Compile Include="Ball.cs" />
+    <Compile Include="GameState.cs" />
+    <Compile Include="GameLevel.cs" />
+    <Compile Include="Menu.cs" />
     <Compile Include="MovingObstacle.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Program.cs" />
-    <Compile Include="Game1.cs" />
+    <Compile Include="CannonGame.cs" />
     <Compile Include="SolidObstacle.cs" />
   </ItemGroup>
   <ItemGroup>

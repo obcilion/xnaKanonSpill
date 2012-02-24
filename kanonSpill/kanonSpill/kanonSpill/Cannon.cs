@@ -15,7 +15,6 @@ namespace CannonGame
     public class Cannon : GameObject
     {
         Rectangle cannonRect;
-        Vector2 origin;
         public Vector2 Direction;
         private float rotationAngle;
 

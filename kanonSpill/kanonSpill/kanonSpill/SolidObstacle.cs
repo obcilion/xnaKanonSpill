@@ -17,7 +17,8 @@ namespace CannonGame
     {
         float height;
         float width;
-        Rectangle obstacle;
+        protected Rectangle obstacle;
+        
 
         public SolidObstacle(Texture2D texture, Vector2 position, int height, int width)
             :base(texture, position)
@@ -27,9 +28,9 @@ namespace CannonGame
             obstacle = new Rectangle((int)position.X, (int)position.Y, height, width);
         }
 
-        public void update()
+        public new void Draw(SpriteBatch spriteBatch)
         {
-
+            spriteBatch.Draw(texture, obstacle, Color.White);
         }
     }
 }

@@ -11,6 +11,7 @@ namespace CannonGame
     {
         protected SpriteBatch SpriteBatch;
         protected ContentManager Content;
+        protected FrameInfo Frameinfo = FrameInfo.Instance;
 
         public GameState(SpriteBatch spriteBatch, ContentManager content)
         {

@@ -16,18 +16,13 @@ namespace CannonGame
     {
         protected Texture2D texture;
         protected Vector2 position;
-        FrameInfo FrameInfo = FrameInfo.Instance;
+        protected FrameInfo Frameinfo = FrameInfo.Instance;
 
         public GameObject(Texture2D texture, Vector2 position) 
         {
             this.texture = texture;
             this.position = position;
         }
-
-        public Vector2 Position
-        {
-            get;
-            protected set;
-        }
+        public Vector2 Position { get { return position; } set { position = value; } }
     }
 }

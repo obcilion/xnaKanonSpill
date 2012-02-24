@@ -82,7 +82,7 @@ namespace CannonGame
             SpriteBatch = new SpriteBatch(GraphicsDevice);
 
             GameStates.Add(new Menu(SpriteBatch, Content,"Images/woodTable"));
-            GameStates.Add(new GameLevel(SpriteBatch, Content));
+            GameStates.Add(new Level1(SpriteBatch, Content));
 
             ActiveGameState = GameStates[1];
 

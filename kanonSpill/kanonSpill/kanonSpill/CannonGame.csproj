@@ -78,6 +78,7 @@
     <Compile Include="Ball.cs" />
     <Compile Include="GameState.cs" />
     <Compile Include="GameLevel.cs" />
+    <Compile Include="Level1.cs" />
     <Compile Include="Menu.cs" />
     <Compile Include="MovingObstacle.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

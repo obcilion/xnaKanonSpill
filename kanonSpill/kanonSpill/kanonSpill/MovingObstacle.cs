@@ -23,7 +23,7 @@ namespace CannonGame
         bool direction = true;
         
 
-        public MovingObstacle(Texture2D texture, Vector2 position, int height, int width, float velocity, char axis, float distance)
+        public MovingObstacle(Texture2D texture, Vector2 position, int height, int width, float velocity, char axis, int distance)
             :base(texture, position, height, width)
         {
             this.velocity = velocity;
@@ -32,8 +32,9 @@ namespace CannonGame
 
         }
 
-        public new void update()
+        public new void Update()
         {
+            
             if (axis == 'Y' && direction == true)
             {
                 position.Y += velocity;
@@ -70,6 +71,8 @@ namespace CannonGame
                     direction = true;
                 }
             }
+            obstacle.X = (int)position.X;
+            obstacle.Y = (int)position.Y;
 
         }
     }

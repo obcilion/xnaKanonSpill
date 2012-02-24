@@ -25,6 +25,7 @@ namespace CannonGame
             this.position = position;
         }
         public Vector2 Position { get { return position; } set { position = value; } }
+        public Texture2D Texture { get { return texture; } set { texture = value; } }
 
         public void Update() { }
 

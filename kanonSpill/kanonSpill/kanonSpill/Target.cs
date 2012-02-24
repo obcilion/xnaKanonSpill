@@ -12,21 +12,19 @@ using Microsoft.Xna.Framework.Media;
 
 namespace CannonGame
 {
-    public class GameObject
+
+    public class Target : GameObject
     {
-        protected Texture2D texture;
-        protected Vector2 position;
 
-        public GameObject(Texture2D texture, Vector2 position) 
+        public bool ballIsInside = false;
+        
+        public Target(Texture2D texture)
+            : base(texture, Vector2.Zero)
         {
-            this.texture = texture;
-            this.position = position;
+
         }
 
-        public Vector2 Position
-        {
-            get;
-            protected set;
-        }
+        
+
     }
 }

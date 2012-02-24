@@ -1,0 +1,24 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010 Express for Windows Phone
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CannonGame", "kanonSpill\kanonSpill\CannonGame.csproj", "{1FF2BD82-8A8B-4FC8-929E-83B8B56BC5FA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CannonGameContent", "kanonSpill\kanonSpillContent\CannonGameContent.contentproj", "{49310CF7-CC4F-454F-AA98-080E5F373ADF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x86 = Debug|x86
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1FF2BD82-8A8B-4FC8-929E-83B8B56BC5FA}.Debug|x86.ActiveCfg = Debug|x86
+		{1FF2BD82-8A8B-4FC8-929E-83B8B56BC5FA}.Debug|x86.Build.0 = Debug|x86
+		{1FF2BD82-8A8B-4FC8-929E-83B8B56BC5FA}.Release|x86.ActiveCfg = Release|x86
+		{1FF2BD82-8A8B-4FC8-929E-83B8B56BC5FA}.Release|x86.Build.0 = Release|x86
+		{49310CF7-CC4F-454F-AA98-080E5F373ADF}.Debug|x86.ActiveCfg = Debug|x86
+		{49310CF7-CC4F-454F-AA98-080E5F373ADF}.Release|x86.ActiveCfg = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

@@ -10,18 +10,26 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
 
-namespace kanonSpill
+namespace CannonGame
 {
     
-    class Ball : GameObject
+    public class Ball : GameObject
     {
-        Vector2 velocity = Vector2.Zero;
+        public Ball(Texture2D texture) : base(texture,new Vector2(0,0))
+        {
+        }
+        public void update()
+        {
+        }
+
+        /*Vector2 velocity = Vector2.Zero;
         float friction = 0.993f;
         float radius = 16f;
         float screenWidth = 480f;
         float screenHeight = 800f;
 
         Vector2 initialVelocity;
+        Cannon cannon;
 
 
         public Ball(Texture2D texture, Cannon cannon)  
@@ -33,10 +41,14 @@ namespace kanonSpill
             initialVelocity = cannon.direction;
             initialVelocity *= 10;
             velocity = initialVelocity;
+            this.cannon = cannon;
         }
 
         public void update() 
         {
+            initialVelocity = cannon.direction;
+            initialVelocity *= 10;
+            velocity = initialVelocity;
             wallCollisionCheck();
             velocity *= friction;
 
@@ -80,6 +92,6 @@ namespace kanonSpill
             spriteBatch.Begin();
             spriteBatch.Draw(texture, position - new Vector2(radius, radius), Color.White);
             spriteBatch.End();
-        }
+        }*/
     }
 }

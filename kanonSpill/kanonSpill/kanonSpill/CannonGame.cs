@@ -81,7 +81,7 @@ namespace CannonGame
             // Create a new SpriteBatch, which can be used to draw textures.
             SpriteBatch = new SpriteBatch(GraphicsDevice);
 
-            GameStates.Add(new Menu(SpriteBatch, Content,"Images/LameBakgrunnSidenFolkIkkeBlirFornøydNårJegLagerFinSol"));
+            GameStates.Add(new Menu(SpriteBatch, Content,"Images/woodTable"));
             GameStates.Add(new GameLevel(SpriteBatch, Content));
 
             ActiveGameState = GameStates[1];

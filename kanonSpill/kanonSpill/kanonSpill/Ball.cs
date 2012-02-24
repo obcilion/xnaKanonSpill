@@ -35,7 +35,7 @@ namespace CannonGame
                 Position += Velocity;
         }
 
-        public void Draw(SpriteBatch spriteBatch)
+        public new void Draw(SpriteBatch spriteBatch)
         {
             if (Enabled){
                 spriteBatch.Draw(texture, position - new Vector2(radius, radius), Color.White);

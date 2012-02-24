@@ -21,8 +21,8 @@ namespace CannonGame
             : base(spriteBatch, content)
         {
             Instance = this;
-            niceCannon = new Cannon(Content.Load<Texture2D>("Images/kanon"));
-            badCannon = new BadCannon(Content.Load<Texture2D>("Images/slemKanon"));
+            niceCannon = new Cannon(Content.Load<Texture2D>("Images/kanon"),new Vector2(240,784),new Vector2(0,1));
+            badCannon = new Cannon(Content.Load<Texture2D>("Images/slemKanon",new Vector2(240,16),new Vector2(0,-1));
             niceBall = new Ball(Content.Load<Texture2D>("Images/ball"));
             badBall = new Ball(Content.Load<Texture2D>("Images/slemBall"));
             target = new Target(Content.Load<Texture2D>("Images/mål"));

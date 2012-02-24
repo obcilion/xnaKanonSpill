@@ -67,7 +67,7 @@ namespace CannonGame
 
             if (placing)
             {
-                Position = new Vector2(Frameinfo.MouseState.X, Position.Y);
+                Position = Vector2.Clamp(new Vector2(Frameinfo.MouseState.X, Position.Y),new Vector2(16,0),new Vector2(464,800));
                 cannonRect = new Rectangle((int)Position.X - 16, (int)Position.Y - 16, texture.Width, texture.Height);
             }
         }

@@ -17,6 +17,7 @@ namespace CannonGame
         protected Texture2D texture;
         protected Vector2 position;
         protected FrameInfo Frameinfo = FrameInfo.Instance;
+        protected Vector2 origin;
 
         public GameObject(Texture2D texture, Vector2 position) 
         {
@@ -29,7 +30,7 @@ namespace CannonGame
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            spriteBatch.Draw(texture, position, Color.White);
+            spriteBatch.Draw(texture, position-this.origin, Color.White);
         }
     }
 }

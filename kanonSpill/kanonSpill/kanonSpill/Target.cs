@@ -15,12 +15,14 @@ namespace CannonGame
 
     public class Target : GameObject
     {
-        public const float radius = 64;
+        public float radius = 32;
+
         
         public Target(Texture2D texture)
             : base(texture, Vector2.Zero)
         {
-
+            this.origin = new Vector2(radius, radius);
+            this.Position = new Vector2(200, 200);
         }
 
         

@@ -63,6 +63,11 @@ namespace CannonGame
             }
             niceBall.update();
             badBall.update();
+            if ((niceBall.Position - target.Position).Length() < target.radius-niceBall.radius && niceCannon.hasShot)
+            {
+                bool win = true;
+                //Win
+            }
         }
 
         public override void Draw()

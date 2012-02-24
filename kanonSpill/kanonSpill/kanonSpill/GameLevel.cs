@@ -12,7 +12,7 @@ namespace CannonGame
     {
         public static GameLevel Instance = null;
         public Cannon niceCannon = null;
-        public BadCannon badCannon = null;
+        public Cannon badCannon = null;
         public Ball niceBall = null;
         public Ball badBall = null;
         public Target target = null;
@@ -22,7 +22,7 @@ namespace CannonGame
         {
             Instance = this;
             niceCannon = new Cannon(Content.Load<Texture2D>("Images/kanon"),new Vector2(240,784),new Vector2(0,1));
-            badCannon = new Cannon(Content.Load<Texture2D>("Images/slemKanon",new Vector2(240,16),new Vector2(0,-1));
+            badCannon = new Cannon(Content.Load<Texture2D>("Images/slemKanon"),new Vector2(240,16),new Vector2(0,-1));
             niceBall = new Ball(Content.Load<Texture2D>("Images/ball"));
             badBall = new Ball(Content.Load<Texture2D>("Images/slemBall"));
             target = new Target(Content.Load<Texture2D>("Images/mål"));

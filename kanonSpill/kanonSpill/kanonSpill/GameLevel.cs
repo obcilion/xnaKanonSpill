@@ -27,19 +27,19 @@ namespace CannonGame
             : base(spriteBatch, content)
         {
             Instance = this;
-            background = Content.Load<Texture2D>("Images/woodTable");
+            
+            // TODO: use Content to load your game content here
+           // background = Content.Load<Texture2D>("Images/woodTable");
+            fireButtonTexture = Content.Load<Texture2D>(@"Images\fireButton");
+
             niceCannon = new Cannon(Content.Load<Texture2D>("Images/kanon"), new Vector2(240, 784), new Vector2(0, -1));
             badCannon = new Cannon(Content.Load<Texture2D>("Images/slemKanon"), new Vector2(240, 16), new Vector2(0, 1));
             niceBall = new Ball(Content.Load<Texture2D>("Images/ball"));
             badBall = new Ball(Content.Load<Texture2D>("Images/slemBall"));
             target = new Target(Content.Load<Texture2D>("Images/mål"));
-            shoot = new Rectangle(480 - 64, 450, 64, 128);
-            fireButtonTexture = Content.Load<Texture2D>(@"Images\broFire");
-
+            shoot = new Rectangle(480 - 48, 450, 48, 48);
             
-
-
-            // TODO: use Content to load your game content here
+            
         }
 
         public override void Update()
@@ -75,7 +75,7 @@ namespace CannonGame
 
         public override void Draw()
         {
-            SpriteBatch.Draw(background, Vector2.Zero, Color.White);
+            //SpriteBatch.Draw(background, Vector2.Zero, Color.White);
             target.Draw(SpriteBatch);
             niceBall.Draw(SpriteBatch);
             badBall.Draw(SpriteBatch);

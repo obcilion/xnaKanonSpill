@@ -41,30 +41,40 @@ namespace CannonGame
 
         public override void Update()
         {
-            if (!niceCannon.placing && !niceCannon.aiming &&
-                Mouse.GetState().LeftButton == ButtonState.Pressed &&
-                shoot.Contains(Mouse.GetState().X, Mouse.GetState().Y))
+            if (!niceCannon.hasShot)
             {
 
-                niceCannon.Fire(niceBall);
-                badCannon.Fire(badBall);
-            }
+                if (!niceCannon.placing && !niceCannon.aiming &&
+                    Mouse.GetState().LeftButton == ButtonState.Pressed &&
+                    shoot.Contains(Mouse.GetState().X, Mouse.GetState().Y))
+                {
 
-            badCannon.Direction = niceCannon.Direction* new Vector2(1,-1);
-            badCannon.Position = new Vector2(niceCannon.Position.X, badCannon.Position.Y);
-            niceCannon.Control();
-            badCannon.updateRotation();
+                    niceCannon.Fire(niceBall);
+                    badCannon.Fire(badBall);
+                }
+                else
+                {
+                    badCannon.Direction = niceCannon.Direction * new Vector2(1, -1);
+                    badCannon.Position = new Vector2(niceCannon.Position.X, badCannon.Position.Y);
+                    niceCannon.Control();
+                    badCannon.updateRotation();
+                }
+                
+            }
             niceBall.update();
             badBall.update();
         }
 
         public override void Draw()
         {
-            SpriteBatch.Draw(fireButtonTexture, shoot, Color.White);
-            niceCannon.Draw(SpriteBatch);
-            badCannon.Draw(SpriteBatch);
+            
+            target.Draw(SpriteBatch);
             niceBall.Draw(SpriteBatch);
             badBall.Draw(SpriteBatch);
+            niceCannon.Draw(SpriteBatch);
+            badCannon.Draw(SpriteBatch);
+            SpriteBatch.Draw(fireButtonTexture, shoot, Color.White);
+            
         }
     }
 }

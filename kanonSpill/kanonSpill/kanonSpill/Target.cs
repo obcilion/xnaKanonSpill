@@ -15,8 +15,7 @@ namespace CannonGame
 
     public class Target : GameObject
     {
-
-        public bool ballIsInside = false;
+        public const float radius = 64;
         
         public Target(Texture2D texture)
             : base(texture, Vector2.Zero)

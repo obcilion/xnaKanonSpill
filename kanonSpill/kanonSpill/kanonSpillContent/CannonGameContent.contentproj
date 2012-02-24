@@ -74,15 +74,15 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Images\redButton.jpg">
-      <Name>redButton</Name>
+    <Compile Include="Images\woodTable.jpg">
+      <Name>woodTable</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Images\LameBakgrunnSidenFolkIkkeBlirFornøydNårJegLagerFinSol.png">
-      <Name>LameBakgrunnSidenFolkIkkeBlirFornøydNårJegLagerFinSol</Name>
+    <Compile Include="Images\redButton.png">
+      <Name>redButton</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>

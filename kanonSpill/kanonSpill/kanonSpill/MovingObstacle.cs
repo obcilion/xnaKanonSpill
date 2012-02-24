@@ -32,7 +32,7 @@ namespace CannonGame
 
         }
 
-        public void update()
+        public new void update()
         {
             if (axis == 'Y' && direction == true)
             {
@@ -71,13 +71,6 @@ namespace CannonGame
                 }
             }
 
-        }
-
-        public void Draw(SpriteBatch spriteBatch)
-        {
-            spriteBatch.Begin();
-            spriteBatch.Draw(texture, position, Color.White);
-            spriteBatch.End();
         }
     }
 }

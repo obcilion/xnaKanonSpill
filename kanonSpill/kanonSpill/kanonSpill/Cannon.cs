@@ -22,6 +22,7 @@ namespace CannonGame
         public bool placing = false;
         public bool aiming = false;
         public Ball ball = null;
+        public bool hasShot = false;
         
 
 
@@ -35,17 +36,7 @@ namespace CannonGame
             updateRotation();
         }
 
-        
-
-        public void Update()
-        {
-
-            
-            
-
-        }
-
-        public void Draw(SpriteBatch spriteBatch)
+        public new void Draw(SpriteBatch spriteBatch)
         {
             spriteBatch.Draw(texture, position, null, Color.White, rotationAngle, origin, 1.0f, SpriteEffects.None, 0f);
         }
@@ -92,6 +83,7 @@ namespace CannonGame
             ball.Position = this.Position;
             ball.Velocity = this.Direction*10;
             ball.Enabled = true;
+            hasShot = true;
         }
 
 

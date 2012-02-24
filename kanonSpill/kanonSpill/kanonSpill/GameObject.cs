@@ -24,5 +24,12 @@ namespace CannonGame
             this.position = position;
         }
         public Vector2 Position { get { return position; } set { position = value; } }
+
+        public void Update() { }
+
+        public void Draw(SpriteBatch spriteBatch)
+        {
+            spriteBatch.Draw(texture, position, Color.White);
+        }
     }
 }

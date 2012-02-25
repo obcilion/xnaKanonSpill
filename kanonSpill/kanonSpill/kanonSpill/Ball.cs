@@ -17,7 +17,7 @@ namespace CannonGame
     {
         public Vector2 Velocity = Vector2.Zero;
         public bool Enabled = false;
-        float friction = 0.999f;
+        float friction = 0.9965f;
         public float radius = 16f;
         float screenWidth = 480f;
         float screenHeight = 800f;

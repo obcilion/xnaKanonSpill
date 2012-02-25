@@ -98,7 +98,7 @@ namespace CannonGame
             badBall.Draw(SpriteBatch);
             niceCannon.Draw(SpriteBatch);
             badCannon.Draw(SpriteBatch);
-            SpriteBatch.Draw(fireButtonTexture, shoot, Color.White);
+            SpriteBatch.Draw(fireButtonTexture, shoot,null, Color.White,0,Vector2.Zero,SpriteEffects.None,1);
             
         }
 

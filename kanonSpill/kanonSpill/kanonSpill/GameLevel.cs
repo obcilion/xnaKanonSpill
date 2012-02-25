@@ -71,29 +71,8 @@ namespace CannonGame
             {
                 foreach (SolidObstacle o in Objects)
                 {
-                    if (intersects(niceBall, o.obstacle)) 
-                    {
-                        
-                        if ((o.obstacle.Left <= niceBall.Position.X && niceBall.Position.X <= o.obstacle.Right)) { niceBall.Velocity *= new Vector2(1, -1); }
-                        else if ((o.obstacle.Top <= niceBall.Position.Y && niceBall.Position.Y <= o.obstacle.Bottom)) { niceBall.Velocity *= new Vector2(-1, 1); }
-                        String side = "Right";
-                        float distanceCheck = Math.Abs(niceBall.Position.X + niceBall.radius - o.obstacle.Right);
-                        if (distanceCheck > Math.Abs(niceBall.Position.X + niceBall.radius - o.obstacle.Left)) { side = "Left"; distanceCheck = Math.Abs(niceBall.Position.X + niceBall.radius - o.obstacle.Left); }
-                        if (distanceCheck > Math.Abs(niceBall.Position.Y + niceBall.radius - o.obstacle.Bottom)) { side = "Bottom"; distanceCheck = Math.Abs(niceBall.Position.Y + niceBall.radius - o.obstacle.Bottom); }
-                        if (distanceCheck > Math.Abs(niceBall.Position.Y + niceBall.radius - o.obstacle.Top)) { side = "Top"; distanceCheck = Math.Abs(niceBall.Position.Y + niceBall.radius - o.obstacle.Top); }
-                        switch(side){
-                            case "Right": niceBall.position.X = o.obstacle.Right + niceBall.radius; break;
-                            case "Left": niceBall.position.X = o.obstacle.Left - niceBall.radius; break;
-                            case "Bottom": niceBall.position.Y = o.obstacle.Bottom + niceBall.radius; break;
-                            case "Top": niceBall.position.Y = o.obstacle.Top - niceBall.radius; break;
-                        }                        
-
-                    }
-                    if (intersects(badBall, o.obstacle))
-                    {
-                        if ((o.obstacle.Left < badBall.Position.X && badBall.Position.X < o.obstacle.Right)) { badBall.Velocity *= new Vector2(1, -1); }
-                        if ((o.obstacle.Top < badBall.Position.Y && badBall.Position.Y < o.obstacle.Bottom)) { badBall.Velocity *= new Vector2(-1, 1); }
-                    }
+                    niceBall.obstacleCollision(o);
+                    badBall.obstacleCollision(o);
                 }
                 
                 niceBall.update();
@@ -117,21 +96,6 @@ namespace CannonGame
             SpriteBatch.Draw(fireButtonTexture, shoot, Color.White);
             
         }
-        bool intersects(Ball circle, Rectangle rect)
-        {
-            Vector2 circleDistance;
-            circleDistance.X = Math.Abs(circle.Position.X - rect.X - rect.Width / 2);
-            circleDistance.Y = Math.Abs(circle.Position.Y - rect.Y - rect.Height / 2);
 
-            if (circleDistance.X > (rect.Width / 2 + circle.radius)) { return false; }
-            if (circleDistance.Y > (rect.Height / 2 + circle.radius)) { return false; }
-
-            if (circleDistance.X <= (rect.Width / 2)) { return true; }
-            if (circleDistance.Y <= (rect.Height / 2)) { return true; }
-
-            float cornerDistance_sq = (float)(Math.Pow((circleDistance.X - rect.Width / 2), 2) + Math.Pow((circleDistance.Y - rect.Height / 2), 2));
-
-            return (cornerDistance_sq <= ( Math.Pow(circle.radius, 2)));
-        }
     }
 }

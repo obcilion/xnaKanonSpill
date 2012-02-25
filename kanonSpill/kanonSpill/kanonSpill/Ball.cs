@@ -71,5 +71,48 @@ namespace CannonGame
 
          
         }
+        public void obstacleCollision(SolidObstacle o)
+        {
+            if (intersects(o.obstacle))
+            {
+
+                if ((o.obstacle.Left <= Position.X && Position.X <= o.obstacle.Right))
+                {
+                    if (Math.Abs(Position.Y - o.obstacle.Top) < Math.Abs(Position.Y - o.obstacle.Bottom))
+                    {
+                        position.Y = o.obstacle.Top - radius;
+                    }
+                    else {position.Y = o.obstacle.Bottom + radius; }
+                    Velocity *= new Vector2(1, -1);
+                }
+                else if ((o.obstacle.Top <= Position.Y && Position.Y <= o.obstacle.Bottom))
+                {
+                    if (Math.Abs(Position.X - o.obstacle.Left) < Math.Abs(Position.X - o.obstacle.Right))
+                    {
+                        position.X = o.obstacle.Left - radius;
+                    }
+                    else { position.X = o.obstacle.Right + radius; }
+                    Velocity *= new Vector2(-1, 1);
+                }
+
+            }
+        }
+        bool intersects(Rectangle rect)
+        {
+            Vector2 circleDistance;
+            circleDistance.X = Math.Abs(Position.X - rect.X - rect.Width / 2);
+            circleDistance.Y = Math.Abs(Position.Y - rect.Y - rect.Height / 2);
+
+            if (circleDistance.X > (rect.Width / 2 + radius)) { return false; }
+            if (circleDistance.Y > (rect.Height / 2 + radius)) { return false; }
+
+            if (circleDistance.X <= (rect.Width / 2)) { return true; }
+            if (circleDistance.Y <= (rect.Height / 2)) { return true; }
+
+            float cornerDistance_sq = (float)(Math.Pow((circleDistance.X - rect.Width / 2), 2) + Math.Pow((circleDistance.Y - rect.Height / 2), 2));
+
+            return (cornerDistance_sq <= (Math.Pow(radius, 2)));
+        }
+
     }
 }

@@ -122,7 +122,7 @@ namespace CannonGame
         {
             GraphicsDevice.Clear(Color.Green);
 
-            SpriteBatch.Begin();
+            SpriteBatch.Begin(SpriteSortMode.FrontToBack,BlendState.AlphaBlend);
 
             ActiveGameState.Draw();
 

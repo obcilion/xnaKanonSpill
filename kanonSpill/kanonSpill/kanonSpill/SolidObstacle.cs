@@ -17,7 +17,7 @@ namespace CannonGame
     {
         float height;
         float width;
-        protected Rectangle obstacle;
+        public Rectangle obstacle;
         
 
         public SolidObstacle(Texture2D texture, Vector2 position, int height, int width)

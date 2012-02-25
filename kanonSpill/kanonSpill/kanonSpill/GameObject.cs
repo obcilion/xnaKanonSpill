@@ -15,7 +15,7 @@ namespace CannonGame
     public class GameObject
     {
         protected Texture2D texture;
-        protected Vector2 position;
+        public Vector2 position;
         protected FrameInfo Frameinfo = FrameInfo.Instance;
         public Vector2 origin;
 

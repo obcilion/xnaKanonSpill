@@ -82,6 +82,11 @@ namespace CannonGame
                     bool win = true;
                     //Win
                 }
+                if ((niceBall.Position - badBall.Position).Length() < (niceBall.radius + badBall.radius) && niceCannon.hasShot)
+                {
+                    bool lose = true;
+                    //lose
+                }
             }
         }
 

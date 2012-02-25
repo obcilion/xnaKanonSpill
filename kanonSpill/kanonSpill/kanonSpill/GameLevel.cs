@@ -22,6 +22,7 @@ namespace CannonGame
         public Rectangle shoot;
         Texture2D fireButtonTexture;
         protected List<GameObject> Objects = new List<GameObject>();
+        public int score;
 
         public GameLevel(SpriteBatch spriteBatch, ContentManager content)
             : base(spriteBatch, content)
@@ -44,6 +45,8 @@ namespace CannonGame
 
         public override void Update()
         {
+            score = (int)niceBall.Velocity.Length() * 100;
+
             if (!niceCannon.hasShot)
             {
 

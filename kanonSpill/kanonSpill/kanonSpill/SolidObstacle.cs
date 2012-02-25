@@ -24,14 +24,14 @@ namespace CannonGame
         float distanceMoved;
         bool direction = true;
         bool moving = false;
-        
 
-        public SolidObstacle(Texture2D texture, Vector2 position, int height, int width)
+
+        public SolidObstacle(Texture2D texture, Vector2 position, int width, int height)
             :base(texture, position)
         {
             this.height = height;
             this.width = width;
-            obstacle = new Rectangle((int)position.X, (int)position.Y, height, width);
+            obstacle = new Rectangle((int)position.X, (int)position.Y, width, height);
             this.origin.X = obstacle.Center.X;
             this.origin.Y = obstacle.Center.Y;
         }

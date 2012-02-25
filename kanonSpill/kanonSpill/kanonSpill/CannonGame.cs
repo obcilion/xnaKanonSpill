@@ -24,22 +24,8 @@ namespace CannonGame
         FrameInfo FrameInfo = FrameInfo.Instance;
 
         List<GameState> GameStates = new List<GameState>();
+        public static int GameStateIndex;
         GameState ActiveGameState = null;
-
-        GameState NextState = null;
-
-        //Ball niceBall;
-        //Cannon niceCannon;
-
-        //Rectangle fireButton;
-        //Texture2D fireButtonTexture;
-        public static void ChangeState(int index)
-        {
-            if (index < CannonGame.Instance.GameStates.Count)
-            {
-                CannonGame.Instance.NextState = CannonGame.Instance.GameStates[index];
-            }
-        }
 
         public CannonGame()
         {
@@ -67,8 +53,7 @@ namespace CannonGame
         protected override void Initialize()
         {
             // TODO: Add your initialization logic here
-            this.IsMouseVisible = true;
-
+            
             base.Initialize();
         }
 
@@ -81,20 +66,11 @@ namespace CannonGame
             // Create a new SpriteBatch, which can be used to draw textures.
             SpriteBatch = new SpriteBatch(GraphicsDevice);
 
-            GameStates.Add(new Menu(SpriteBatch, Content,"Images/woodTable"));
+            GameStates.Add(new SimpleSplash(SpriteBatch, Content, "Images/introScreen"));
             GameStates.Add(new Level1(SpriteBatch, Content));
 
-            ActiveGameState = GameStates[1];
-
-            // TODO: use this.Content to load your game content here
-            //Texture2D niceBallTexture = Content.Load<Texture2D>(@"Images\ball");
-            //Texture2D niceCannonTexture = Content.Load<Texture2D>(@"Images\kanon");
-            //Texture2D fireButtonTexture = Content.Load<Texture2D>(@"Images\skyt");
-
-            //fireButton = new Rectangle(480 - 64, 450, 64, 128);
-            //niceCannon = new Cannon(niceCannonTexture);
-            //niceBall = new Ball(niceBallTexture, niceCannon);
-
+            ActiveGameState = GameStates[0];
+            GameStateIndex = 0;
         }
 
         /// <summary>
@@ -124,21 +100,16 @@ namespace CannonGame
             //Henter inn mouseState på starten av Update, så den ikke kan endre seg underveis
             FrameInfo.MouseState = Mouse.GetState();
 
-            if (NextState != null)
+
+
+            if (GameStateIndex == 0 && GameStates[GameStateIndex].SplashFinished)
             {
-                ActiveGameState = NextState;
-                NextState = null;
+                ActiveGameState = GameStates[1];
+                GameStateIndex = 1;
             }
 
             ActiveGameState.Update();
 
-            /*if (!niceCannon.placing && !niceCannon.aiming &&
-                Mouse.GetState().LeftButton == ButtonState.Pressed &&
-                fireButton.Contains(Mouse.GetState().X, Mouse.GetState().Y))
-                niceCannon.HasShot = true;
-            
-            niceBall.update();
-            niceCannon.update(gameTime);*/
 
             base.Update(gameTime);
         }
@@ -158,23 +129,7 @@ namespace CannonGame
             SpriteBatch.End();
 
             base.Draw(gameTime);
-
-            /*if (!niceCannon.HasShot)
-            {
-                SpriteBatch.Begin();
-                SpriteBatch.Draw(fireButtonTexture, fireButton, Color.White);
-                SpriteBatch.End();
-            }
-
-            if(niceCannon.HasShot)
-            niceBall.Draw(SpriteBatch);
-
-            if(!niceCannon.HasShot)
-            niceCannon.Draw(SpriteBatch);
-
-            
-
-            base.Draw(gameTime);*/
+        
         }
     }
 }

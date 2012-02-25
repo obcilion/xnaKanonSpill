@@ -17,7 +17,7 @@ namespace CannonGame
         protected Texture2D texture;
         protected Vector2 position;
         protected FrameInfo Frameinfo = FrameInfo.Instance;
-        protected Vector2 origin;
+        public Vector2 origin;
 
         public GameObject(Texture2D texture, Vector2 position) 
         {
@@ -27,7 +27,7 @@ namespace CannonGame
         public Vector2 Position { get { return position; } set { position = value; } }
         public Texture2D Texture { get { return texture; } set { texture = value; } }
 
-        public void Update() { }
+        public virtual void Update() { }
 
         public void Draw(SpriteBatch spriteBatch)
         {

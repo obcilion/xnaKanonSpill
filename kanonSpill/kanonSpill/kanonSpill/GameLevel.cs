@@ -22,7 +22,6 @@ namespace CannonGame
         public Rectangle shoot;
         Texture2D fireButtonTexture;
         protected List<GameObject> Objects = new List<GameObject>();
-        protected List<GameObject> MovingObjects = new List<GameObject>();
 
         public GameLevel(SpriteBatch spriteBatch, ContentManager content)
             : base(spriteBatch, content)
@@ -69,105 +68,18 @@ namespace CannonGame
             {
                 foreach (SolidObstacle o in Objects)
                 {
-                    if ((o.obstacle.Contains(new Point((int) niceBall.Position.X,(int) niceBall.Position.Y)))){
-                        /*int sideCheck = (o.obstacle.Bottom - (int)niceBall.Position.Y);
-                        char axis = 'Y';
-                        if (o.obstacle.Top - (int)niceBall.Position.Y < sideCheck) 
-                        {
-                            sideCheck = (o.obstacle.Top - (int)niceBall.Position.Y); 
-                            axis = 'Y';
-                        }
-                        if (o.obstacle.Left - (int)niceBall.Position.X < sideCheck)
-                        {
-                            sideCheck = (o.obstacle.Left - (int)niceBall.Position.X);
-                            axis = 'X';
-                        }
-                        if (o.obstacle.Right - (int)niceBall.Position.X < sideCheck)
-                        {
-                            sideCheck = (o.obstacle.Right - (int)niceBall.Position.X);
-                            axis = 'X';
-                        }
-                        if (axis == 'Y')niceBall.Velocity *= new Vector2(-1,1);
-                        else niceBall.Velocity *= new Vector2(1,-1);*/
-                        niceBall.Velocity *= new Vector2(1, -1);
-                        
-                    }
-                    if ((o.obstacle.Contains(new Point((int)badBall.Position.X, (int)badBall.Position.Y))))
+                    if (intersects(niceBall, o.obstacle)) 
                     {
-                        /*int sideCheck = (o.obstacle.Bottom - (int)niceBall.Position.Y);
-                        char axis = 'Y';
-                        if (o.obstacle.Top - (int)niceBall.Position.Y < sideCheck) 
-                        {
-                            sideCheck = (o.obstacle.Top - (int)niceBall.Position.Y); 
-                            axis = 'Y';
-                        }
-                        if (o.obstacle.Left - (int)niceBall.Position.X < sideCheck)
-                        {
-                            sideCheck = (o.obstacle.Left - (int)niceBall.Position.X);
-                            axis = 'X';
-                        }
-                        if (o.obstacle.Right - (int)niceBall.Position.X < sideCheck)
-                        {
-                            sideCheck = (o.obstacle.Right - (int)niceBall.Position.X);
-                            axis = 'X';
-                        }
-                        if (axis == 'Y')niceBall.Velocity *= new Vector2(-1,1);
-                        else niceBall.Velocity *= new Vector2(1,-1);*/
-                        badBall.Velocity *= new Vector2(1, -1);
-
+                        if ((o.obstacle.Left <= niceBall.Position.X && niceBall.Position.X <= o.obstacle.Right)) { niceBall.Velocity *= new Vector2(1, -1); }
+                        else if ((o.obstacle.Top <= niceBall.Position.Y && niceBall.Position.Y <= o.obstacle.Bottom)) { niceBall.Velocity *= new Vector2(-1, 1); }
+                    }
+                    if (intersects(badBall, o.obstacle))
+                    {
+                        if ((o.obstacle.Left < badBall.Position.X && badBall.Position.X < o.obstacle.Right)) { badBall.Velocity *= new Vector2(1, -1); }
+                        if ((o.obstacle.Top < badBall.Position.Y && badBall.Position.Y < o.obstacle.Bottom)) { badBall.Velocity *= new Vector2(-1, 1); }
                     }
                 }
-                foreach (MovingObstacle o in MovingObjects)
-                {
-                    if ((o.obstacle.Contains(new Point((int)niceBall.Position.X, (int)niceBall.Position.Y))))
-                    {
-                        /*int sideCheck = (o.obstacle.Bottom - (int)niceBall.Position.Y);
-                        char axis = 'Y';
-                        if (o.obstacle.Top - (int)niceBall.Position.Y < sideCheck)
-                        {
-                            sideCheck = (o.obstacle.Top - (int)niceBall.Position.Y);
-                            axis = 'Y';
-                        }
-                        if (o.obstacle.Left - (int)niceBall.Position.X < sideCheck)
-                        {
-                            sideCheck = (o.obstacle.Left - (int)niceBall.Position.X);
-                            axis = 'X';
-                        }
-                        if (o.obstacle.Right - (int)niceBall.Position.X < sideCheck)
-                        {
-                            sideCheck = (o.obstacle.Right - (int)niceBall.Position.X);
-                            axis = 'X';
-                        }
-                        if (axis == 'Y') niceBall.Velocity *= new Vector2(1, -1);
-                        else niceBall.Velocity *= new Vector2(-1, 1);*/
-                        niceBall.Velocity *= new Vector2(1, -1);
-
-                    }
-                    if ((o.obstacle.Contains(new Point((int)badBall.Position.X, (int)badBall.Position.Y))))
-                    {
-                        /*int sideCheck = (o.obstacle.Bottom - (int)niceBall.Position.Y);
-                        char axis = 'Y';
-                        if (o.obstacle.Top - (int)niceBall.Position.Y < sideCheck)
-                        {
-                            sideCheck = (o.obstacle.Top - (int)niceBall.Position.Y);
-                            axis = 'Y';
-                        }
-                        if (o.obstacle.Left - (int)niceBall.Position.X < sideCheck)
-                        {
-                            sideCheck = (o.obstacle.Left - (int)niceBall.Position.X);
-                            axis = 'X';
-                        }
-                        if (o.obstacle.Right - (int)niceBall.Position.X < sideCheck)
-                        {
-                            sideCheck = (o.obstacle.Right - (int)niceBall.Position.X);
-                            axis = 'X';
-                        }
-                        if (axis == 'Y') niceBall.Velocity *= new Vector2(1, -1);
-                        else niceBall.Velocity *= new Vector2(-1, 1);*/
-                        badBall.Velocity *= new Vector2(1, -1);
-
-                    }
-                }
+                
                 niceBall.update();
                 badBall.update();
                 if ((niceBall.Position - target.Position).Length() < target.radius - niceBall.radius && niceCannon.hasShot)
@@ -188,6 +100,22 @@ namespace CannonGame
             badCannon.Draw(SpriteBatch);
             SpriteBatch.Draw(fireButtonTexture, shoot, Color.White);
             
+        }
+        bool intersects(Ball circle, Rectangle rect)
+        {
+            Vector2 circleDistance;
+            circleDistance.X = Math.Abs(circle.Position.X - rect.X - rect.Width / 2);
+            circleDistance.Y = Math.Abs(circle.Position.Y - rect.Y - rect.Height / 2);
+
+            if (circleDistance.X > (rect.Width / 2 + circle.radius)) { return false; }
+            if (circleDistance.Y > (rect.Height / 2 + circle.radius)) { return false; }
+
+            if (circleDistance.X <= (rect.Width / 2)) { return true; }
+            if (circleDistance.Y <= (rect.Height / 2)) { return true; }
+
+            float cornerDistance_sq = (float)(Math.Pow((circleDistance.X - rect.Width / 2), 2) + Math.Pow((circleDistance.Y - rect.Height / 2), 2));
+
+            return (cornerDistance_sq <= ( Math.Pow(circle.radius, 2)));
         }
     }
 }

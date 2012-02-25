@@ -17,13 +17,14 @@ namespace CannonGame
     {
         public Vector2 Velocity = Vector2.Zero;
         public bool Enabled = false;
-        float friction = 0.998f;
+        float friction = 0.999f;
         public float radius = 16f;
         float screenWidth = 480f;
         float screenHeight = 800f;
 
         public Ball(Texture2D texture) : base(texture,new Vector2(0,0))
         {
+            this.origin = new Vector2(radius, radius);
         }
 
         public void update()
@@ -38,7 +39,7 @@ namespace CannonGame
         public new void Draw(SpriteBatch spriteBatch)
         {
             if (Enabled){
-                spriteBatch.Draw(texture, position - new Vector2(radius, radius), Color.White);
+                spriteBatch.Draw(texture, position - origin, Color.White);
             }
         }
 

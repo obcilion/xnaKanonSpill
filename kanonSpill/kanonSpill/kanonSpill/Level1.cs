@@ -21,8 +21,8 @@ namespace CannonGame
         {
             // TODO: Her/slik legges alle verdiene inn
             Objects.Add(new SolidObstacle(Content.Load<Texture2D>("Images/blokk1"), new Vector2(120, 150), 200, 80));
-            MovingObjects.Add(new MovingObstacle(Content.Load<Texture2D>("Images/blokk2"), new Vector2(0, 260),  150, 50, 1f,'Y', 50));
-            MovingObjects.Add(new MovingObstacle(Content.Load<Texture2D>("Images/blokk3"), new Vector2(0, 430), 150, 50, 2f, 'X', 150));
+            Objects.Add(new SolidObstacle(Content.Load<Texture2D>("Images/blokk2"), new Vector2(0, 260),  150, 50, 1f,'Y', 50));
+            Objects.Add(new SolidObstacle(Content.Load<Texture2D>("Images/blokk3"), new Vector2(0, 430), 150, 50, 2f, 'X', 150));
 
 
             //  TODO: Sett inn prefererte posisjonsverdien til målet her
@@ -36,10 +36,6 @@ namespace CannonGame
             {
                 o.Draw(SpriteBatch);
             }
-            foreach (MovingObstacle o in MovingObjects)
-            {
-                o.Draw(SpriteBatch);
-            }
             // TODO: Alle objektene må legges inn her/slik for at de skal bli tegnet
                
         }
@@ -49,10 +45,6 @@ namespace CannonGame
         {
             base.Update();
             foreach (SolidObstacle o in Objects)
-            {
-                o.Update();
-            }
-            foreach (MovingObstacle o in MovingObjects)
             {
                 o.Update();
             }

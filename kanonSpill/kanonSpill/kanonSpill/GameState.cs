@@ -12,13 +12,11 @@ namespace CannonGame
         protected SpriteBatch SpriteBatch;
         protected ContentManager Content;
         protected FrameInfo Frameinfo = FrameInfo.Instance;
-        public bool SplashFinished;
 
         public GameState(SpriteBatch spriteBatch, ContentManager content)
         {
             SpriteBatch = spriteBatch;
             Content = content;
-            SplashFinished = false;
         }
 
         public virtual void Update() { }

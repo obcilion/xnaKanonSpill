@@ -89,11 +89,13 @@ namespace CannonGame
 
         public override void  Draw()
         {
- 	        base.Draw();
+
             SpriteBatch.Draw(button1Texture, button1, Color.White);
             SpriteBatch.Draw(button2Texture, button2, Color.White);
             SpriteBatch.Draw(button3Texture, button3, Color.White);
             SpriteBatch.Draw(button4Texture, button4, Color.White);
+
+            base.Draw();
         }
     }
 }

@@ -74,13 +74,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Images\woodTable.jpg">
-      <Name>woodTable</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
     <Compile Include="Images\fireButton.png">
       <Name>fireButton</Name>
       <Importer>TextureImporter</Importer>
@@ -145,6 +138,88 @@
   <ItemGroup>
     <Compile Include="Images\quitButton.png">
       <Name>quitButton</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Images\gameOver.png">
+      <Name>gameOver</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Images\menu.png">
+      <Name>menu</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Images\levelCleared.png">
+      <Name>levelCleared</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Images\menuButton.png">
+      <Name>menuButton</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Images\menuButton2.png">
+      <Name>menuButton2</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Images\nextLevel.png">
+      <Name>nextLevel</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Images\RAGEQUITbutton.png">
+      <Name>RAGEQUITbutton</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Images\replayButton.png">
+      <Name>replayButton</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Images\selectLevel.png">
+      <Name>selectLevel</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Images\selectLevelButton.png">
+      <Name>selectLevelButton</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Images\selectLevelButton2.png">
+      <Name>selectLevelButton2</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Images\tryAgainButton.png">
+      <Name>tryAgainButton</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Images\whiteButton.png">
+      <Name>whiteButton</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Images\createdBy.png">
+      <Name>createdBy</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>

@@ -24,7 +24,7 @@ namespace CannonGame
             : base(spriteBatch, content, backTexture, gameStateIndex)
         {
             font = Content.Load<SpriteFont>("Font");
-            button = Content.Load<Texture2D>("");
+            button = Content.Load<Texture2D>("Images/whiteButton");
 
             level1 = new Rectangle(180, 400, 120, 50);
             level2 = new Rectangle(180, 470, 120, 50);

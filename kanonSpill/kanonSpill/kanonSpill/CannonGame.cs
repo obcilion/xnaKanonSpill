@@ -79,16 +79,16 @@ namespace CannonGame
             SpriteBatch = new SpriteBatch(GraphicsDevice);
 
             GameStates.Add(new SimpleSplash(SpriteBatch, Content, "Images/introScreen", 0));
-            GameStates.Add(new menuSplash(SpriteBatch, Content, "Images/mainMenu", 
+            GameStates.Add(new menuSplash(SpriteBatch, Content, "Images/menu", 
                 "Images/playButton", "Images/howToPlayButton", "Images/creditsButton", "Images/quitButton", 1));
-            GameStates.Add(new SimpleSplash(SpriteBatch, Content, "Images/howToPlay1", 2));
-            GameStates.Add(new SimpleSplash(SpriteBatch, Content, "Images/howToPlay2", 3));
-            GameStates.Add(new SimpleSplash(SpriteBatch, Content, "Images/credits", 4));
-            GameStates.Add(new LevelSelecter(SpriteBatch, Content, "", 5));
-            GameStates.Add(new menuSplash(SpriteBatch, Content, "Images/winSplash",
-                "Images/playButton", "Images/howToPlayButton", "Images/creditsButton", "Images/quitButton", 6));
-            GameStates.Add(new menuSplash(SpriteBatch, Content, "Images/loseSplash",
-                "Images/playButton", "Images/howToPlayButton", "Images/creditsButton", "Images/quitButton", 7));
+            GameStates.Add(new SimpleSplash(SpriteBatch, Content, "Images/introScreen", 2));
+            GameStates.Add(new SimpleSplash(SpriteBatch, Content, "Images/createdBy", 3));
+            GameStates.Add(new SimpleSplash(SpriteBatch, Content, "Images/createdBy", 4));
+            GameStates.Add(new LevelSelecter(SpriteBatch, Content, "Images/selectLevel", 5));
+            GameStates.Add(new menuSplash(SpriteBatch, Content, "Images/levelCleared",
+                "Images/replayButton", "Images/nextLevel", "Images/selectLevelButton2", "Images/menuButton2", 6));
+            GameStates.Add(new menuSplash(SpriteBatch, Content, "Images/gameOver",
+                "Images/tryAgainButton", "Images/selectLevelButton", "Images/menuButton", "Images/RAGEQUITbutton", 7));
             GameStates.Add(new Level1(SpriteBatch, Content, 8));
             GameStates.Add(new Level2(SpriteBatch, Content, 9));
             GameStates.Add(new jaLevel3(SpriteBatch, Content, 10));

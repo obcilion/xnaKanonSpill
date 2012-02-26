@@ -22,6 +22,7 @@ namespace CannonGame
         public Rectangle shoot;
         Texture2D fireButtonTexture;
         protected List<GameObject> Objects;
+        SpriteFont Font;
         public int score;
 
         public GameLevel(SpriteBatch spriteBatch, ContentManager content)
@@ -33,6 +34,8 @@ namespace CannonGame
            // background = Content.Load<Texture2D>("Images/woodTable");
             fireButtonTexture = Content.Load<Texture2D>(@"Images\fireButton");
 
+            Font = Content.Load<SpriteFont>("Font");
+
             niceCannon = new Cannon(Content.Load<Texture2D>("Images/kanon"), new Vector2(240, 784), new Vector2(0, -1));
             badCannon = new Cannon(Content.Load<Texture2D>("Images/slemKanon"), new Vector2(240, 16), new Vector2(0, 1));
             niceBall = new Ball(Content.Load<Texture2D>("Images/ball"));
@@ -43,7 +46,7 @@ namespace CannonGame
             Objects = new List<GameObject>();            
             
         }
-        public void Reset()
+        public override void Reset()
         {
             niceCannon = new Cannon(Content.Load<Texture2D>("Images/kanon"), new Vector2(240, 784), new Vector2(0, -1));
             badCannon = new Cannon(Content.Load<Texture2D>("Images/slemKanon"), new Vector2(240, 16), new Vector2(0, 1));
@@ -81,19 +84,17 @@ namespace CannonGame
                     niceBall.obstacleCollision(o);
                     badBall.obstacleCollision(o);
                 }
-                
+                score = (int)(niceBall.Velocity.Length() * 1000);
                 niceBall.update();
                 badBall.update();
                 if ((niceBall.Position - target.Position).Length() < target.radius - niceBall.radius && niceCannon.hasShot)
                 {
                     Reset();
-                    score = (int)(niceBall.Velocity.Length()*1000);
                     //Win
                 }
                 if (((niceBall.Position - badBall.Position).Length() < (niceBall.radius + badBall.radius) || niceBall.Velocity == Vector2.Zero) && niceCannon.hasShot)
                 {
                     Reset();
-                    bool lose = true;
                     //lose
                 }
             }
@@ -108,6 +109,7 @@ namespace CannonGame
             niceCannon.Draw(SpriteBatch);
             badCannon.Draw(SpriteBatch);
             SpriteBatch.Draw(fireButtonTexture, shoot,null, Color.White,0,Vector2.Zero,SpriteEffects.None,1);
+            SpriteBatch.DrawString(Font, "Score: " + score.ToString(), new Vector2(15, 15), Color.Red,0,Vector2.Zero,1f,SpriteEffects.None,1f);
             
         }
 

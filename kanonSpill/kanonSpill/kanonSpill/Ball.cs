@@ -31,9 +31,8 @@ namespace CannonGame
         {
             wallCollisionCheck();
             Velocity *= friction;
-
-            if (Velocity.Length() > 0.1)
-                Position += Velocity;
+            if (Velocity.Length() < 0.1)  Velocity = Vector2.Zero;
+            Position += Velocity;
         }
 
         public new void Draw(SpriteBatch spriteBatch)

@@ -24,10 +24,10 @@ namespace CannonGame
         FrameInfo FrameInfo = FrameInfo.Instance;
 
         List<GameState> GameStates = new List<GameState>();
-        public static int GameStateIndex;
         GameState ActiveGameState = null;
 
         GameState NextState = null;
+        public static int previousGameStateIndex;
 
         public static void ChangeState(int index)
         {
@@ -75,14 +75,16 @@ namespace CannonGame
             // Create a new SpriteBatch, which can be used to draw textures.
             SpriteBatch = new SpriteBatch(GraphicsDevice);
 
-            GameStates.Add(new SimpleSplash(SpriteBatch, Content, "Images/introScreen"));
+            GameStates.Add(new SimpleSplash(SpriteBatch, Content, "Images/introScreen", 0));
+            GameStates.Add(new menuSplash(SpriteBatch, Content, "Images/introScreen", 
+                "Images/playButton", "Images/howToPlayButton", "Images/creditsButton", "Images/quitButton", 1));
             GameStates.Add(new Level1(SpriteBatch, Content));
             GameStates.Add(new Level2(SpriteBatch, Content));
             GameStates.Add(new jaLevel3(SpriteBatch, Content));
             GameStates.Add(new jaLevel4(SpriteBatch, Content));
 
             ActiveGameState = GameStates[0];
-            GameStateIndex = 0;
+            
         }
 
         /// <summary>
@@ -117,6 +119,7 @@ namespace CannonGame
             {
                 ActiveGameState = NextState;
                 ActiveGameState.Reset();
+                previousGameStateIndex = NextState.PreviousGameStateIndex;
                 NextState = null;
             }
             /*if (GameStateIndex == 0 && GameStates[GameStateIndex].SplashFinished)

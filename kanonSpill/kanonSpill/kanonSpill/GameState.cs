@@ -12,11 +12,13 @@ namespace CannonGame
         protected SpriteBatch SpriteBatch;
         protected ContentManager Content;
         protected FrameInfo Frameinfo = FrameInfo.Instance;
+        public int PreviousGameStateIndex;
 
-        public GameState(SpriteBatch spriteBatch, ContentManager content)
+        public GameState(SpriteBatch spriteBatch, ContentManager content, int previousGameStateIndex)
         {
             SpriteBatch = spriteBatch;
             Content = content;
+            PreviousGameStateIndex = previousGameStateIndex;
         }
         public void Reset() { }
 

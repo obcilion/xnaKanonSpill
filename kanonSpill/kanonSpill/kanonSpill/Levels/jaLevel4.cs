@@ -13,10 +13,10 @@ namespace CannonGame
 {
     public class jaLevel4 : GameLevel
     {
-
+        static int levelIndex = 4;
 
         public jaLevel4(SpriteBatch spriteBatch, ContentManager content)
-            : base(spriteBatch, content)
+            : base(spriteBatch, content, levelIndex)
         {
             /* TODO: Her/slik legges alle objektene inn
             Eks :

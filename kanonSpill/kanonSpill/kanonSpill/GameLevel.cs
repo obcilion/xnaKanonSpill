@@ -24,8 +24,8 @@ namespace CannonGame
         protected List<GameObject> Objects;
         public int score;
 
-        public GameLevel(SpriteBatch spriteBatch, ContentManager content)
-            : base(spriteBatch, content)
+        public GameLevel(SpriteBatch spriteBatch, ContentManager content, int gameStateIndex)
+            : base(spriteBatch, content, gameStateIndex)
         {
             Instance = this;
             
@@ -40,7 +40,7 @@ namespace CannonGame
             target = new Target(Content.Load<Texture2D>("Images/mål"));
             shoot = new Rectangle(480 - 48, 450, 48, 48);
             score = 0;
-            Objects = new List<GameObject>();            
+            Objects = new List<GameObject>();
             
         }
         public void Reset()

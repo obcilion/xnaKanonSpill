@@ -10,10 +10,10 @@ namespace CannonGame
 {
     public class Level1 : GameLevel
     {
+      
 
-
-        public Level1(SpriteBatch spriteBatch, ContentManager content)
-            : base(spriteBatch, content)
+        public Level1(SpriteBatch spriteBatch, ContentManager content, int gameStateIndex)
+            : base(spriteBatch, content, gameStateIndex)
         {
             /* TODO: Her/slik legges alle objektene inn
             Eks :

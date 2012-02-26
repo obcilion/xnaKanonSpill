@@ -67,7 +67,7 @@ namespace CannonGame
             SpriteBatch = new SpriteBatch(GraphicsDevice);
 
             GameStates.Add(new SimpleSplash(SpriteBatch, Content, "Images/introScreen"));
-            GameStates.Add(new Level1(SpriteBatch, Content));
+            GameStates.Add(new Level2(SpriteBatch, Content));
 
             ActiveGameState = GameStates[0];
             GameStateIndex = 0;

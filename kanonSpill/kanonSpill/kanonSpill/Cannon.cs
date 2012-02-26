@@ -60,6 +60,7 @@ namespace CannonGame
                 Direction = new Vector2(Frameinfo.MouseState.X - Position.X, Frameinfo.MouseState.Y - Position.Y);
                 Direction.Normalize();
                 Direction = Vector2.Clamp(Direction, new Vector2(-1, -1), new Vector2(1, 0));
+                Direction.Normalize();
                 updateRotation();
                 
             }

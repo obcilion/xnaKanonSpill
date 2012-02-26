@@ -20,6 +20,8 @@ namespace CannonGame
         Rectangle button4;
         Texture2D button4Texture;
 
+        Point mouse;
+
         public menuSplash(SpriteBatch spriteBatch, ContentManager content, String backTexture, 
             string button1Texture, string button2Texture, string button3Texture, string button4Texture, int gameStateIndex)
             : base(spriteBatch, content, backTexture, gameStateIndex)
@@ -36,54 +38,51 @@ namespace CannonGame
 
         public override void Update()
         {
-            if ((Frameinfo.PreviousMouseState.LeftButton == ButtonState.Pressed) &&
-                (Frameinfo.MouseState.LeftButton == ButtonState.Released) &&
-                (new Vector2(Frameinfo.MouseState.X, Frameinfo.MouseState.Y) == new Vector2(button1.X, button1.Y)))
-            {
-                if (CurrentGameStateIndex == 1)
-                    CannonGame.ChangeState(5);
-                else if (CurrentGameStateIndex == 6)
-                    CannonGame.ChangeState(CannonGame.PreviousLevel);
-                else if (CurrentGameStateIndex == 7)
-                    CannonGame.ChangeState(CannonGame.PreviousLevel);
-            }
-
+            mouse = new Point(Mouse.GetState().X, Mouse.GetState().Y);
 
             if ((Frameinfo.PreviousMouseState.LeftButton == ButtonState.Pressed) &&
-                (Frameinfo.MouseState.LeftButton == ButtonState.Released) &&
-                (new Vector2(Frameinfo.MouseState.X, Frameinfo.MouseState.Y) == new Vector2(button2.X, button2.Y)))
-            {
-                if (CurrentGameStateIndex == 1)
-                    CannonGame.ChangeState(2);
-                else if (CurrentGameStateIndex == 6)
-                    CannonGame.ChangeState(CurrentGameStateIndex + 1);
-                else if (CurrentGameStateIndex == 7)
-                    CannonGame.ChangeState(5);
-            }
+                (Frameinfo.MouseState.LeftButton == ButtonState.Released))
 
-            if ((Frameinfo.PreviousMouseState.LeftButton == ButtonState.Pressed) &&
-                (Frameinfo.MouseState.LeftButton == ButtonState.Released) &&
-                (new Vector2(Frameinfo.MouseState.X, Frameinfo.MouseState.Y) == new Vector2(button3.X, button3.Y)))
-            {
-                if (CurrentGameStateIndex == 1)
-                    CannonGame.ChangeState(5);
-                else if (CurrentGameStateIndex == 6)
-                    CannonGame.ChangeState(5);
-                else if (CurrentGameStateIndex == 7)
-                    CannonGame.ChangeState(1);
-            }
+                if (button1.Contains(mouse))
+                {
+                    if (CurrentGameStateIndex == 1)
+                      CannonGame.ChangeState(5);
+                    else if (CurrentGameStateIndex == 6)
+                       CannonGame.ChangeState(CannonGame.PreviousLevel);
+                    else if (CurrentGameStateIndex == 7)
+                       CannonGame.ChangeState(CannonGame.PreviousLevel);
+                }
 
-            if ((Frameinfo.PreviousMouseState.LeftButton == ButtonState.Pressed) &&
-                (Frameinfo.MouseState.LeftButton == ButtonState.Released) &&
-                (new Vector2(Frameinfo.MouseState.X, Frameinfo.MouseState.Y) == new Vector2(button4.X, button4.Y)))
-            {
-                if (CurrentGameStateIndex == 1)
-                    CannonGame.ExitGame = true;
-                else if (CurrentGameStateIndex == 6)
-                    CannonGame.ChangeState(1);
-                else if (CurrentGameStateIndex == 7)
-                    CannonGame.ExitGame = true;
-            }
+
+                else if (button2.Contains(mouse))
+                {
+                    if (CurrentGameStateIndex == 1)
+                        CannonGame.ChangeState(2);
+                    else if (CurrentGameStateIndex == 6)
+                        CannonGame.ChangeState(CurrentGameStateIndex + 1);
+                    else if (CurrentGameStateIndex == 7)
+                        CannonGame.ChangeState(5);
+                }
+
+                else if (button3.Contains(mouse))
+                {
+                    if (CurrentGameStateIndex == 1)
+                        CannonGame.ChangeState(3);
+                    else if (CurrentGameStateIndex == 6)
+                        CannonGame.ChangeState(5);
+                    else if (CurrentGameStateIndex == 7)
+                        CannonGame.ChangeState(1);
+                }
+
+                else if (button4.Contains(mouse))
+                {
+                    if (CurrentGameStateIndex == 1)
+                        CannonGame.ExitGame = true;
+                    else if (CurrentGameStateIndex == 6)
+                        CannonGame.ChangeState(1);
+                    else if (CurrentGameStateIndex == 7)
+                        CannonGame.ExitGame = true;
+                }
             
         }
 

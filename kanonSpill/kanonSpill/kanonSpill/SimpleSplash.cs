@@ -11,7 +11,7 @@ namespace CannonGame
     public class SimpleSplash : GameState
     {
         Texture2D splashTexture;
-
+        int NextState = 4;
         public SimpleSplash(SpriteBatch spriteBatch, ContentManager content, String texture)
             : base(spriteBatch, content)
         {
@@ -23,7 +23,7 @@ namespace CannonGame
 
             if ((Frameinfo.PreviousMouseState.LeftButton == Microsoft.Xna.Framework.Input.ButtonState.Pressed) &&
                 (Frameinfo.MouseState.LeftButton == Microsoft.Xna.Framework.Input.ButtonState.Released))
-                SplashFinished = true;
+                CannonGame.ChangeState(NextState);
         }
 
         public override void Draw()

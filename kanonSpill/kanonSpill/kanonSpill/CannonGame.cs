@@ -27,6 +27,15 @@ namespace CannonGame
         public static int GameStateIndex;
         GameState ActiveGameState = null;
 
+        GameState NextState = null;
+
+        public static void ChangeState(int index)
+        {
+            if (index < CannonGame.Instance.GameStates.Count)
+            {
+                CannonGame.Instance.NextState = CannonGame.Instance.GameStates[index];
+            }
+        }
         public CannonGame()
         {
             Graphics = new GraphicsDeviceManager(this);
@@ -67,7 +76,10 @@ namespace CannonGame
             SpriteBatch = new SpriteBatch(GraphicsDevice);
 
             GameStates.Add(new SimpleSplash(SpriteBatch, Content, "Images/introScreen"));
+            GameStates.Add(new Level1(SpriteBatch, Content));
+            GameStates.Add(new Level2(SpriteBatch, Content));
             GameStates.Add(new jaLevel3(SpriteBatch, Content));
+            GameStates.Add(new jaLevel4(SpriteBatch, Content));
 
             ActiveGameState = GameStates[0];
             GameStateIndex = 0;
@@ -101,12 +113,16 @@ namespace CannonGame
             FrameInfo.MouseState = Mouse.GetState();
 
 
-
-            if (GameStateIndex == 0 && GameStates[GameStateIndex].SplashFinished)
+            if (NextState != null)
             {
-                ActiveGameState = GameStates[1];
-                GameStateIndex = 1;
+                ActiveGameState = NextState;
+                NextState = null;
             }
+            /*if (GameStateIndex == 0 && GameStates[GameStateIndex].SplashFinished)
+            {
+                ActiveGameState = GameStates[3];
+                GameStateIndex = 3;
+            }*/
 
             ActiveGameState.Update();
 

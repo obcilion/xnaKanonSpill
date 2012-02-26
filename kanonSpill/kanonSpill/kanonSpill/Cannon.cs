@@ -12,7 +12,7 @@ using Microsoft.Xna.Framework.Media;
 
 namespace CannonGame
 {
-    public class Cannon : GameObject
+    public class Cannon : GameObject //Skrevet av Jan Arild Brobak med litt fra Ketil Almquist
     {
         Rectangle cannonRect;
         public Vector2 Direction;

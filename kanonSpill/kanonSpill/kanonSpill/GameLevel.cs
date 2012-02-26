@@ -11,7 +11,7 @@ using Microsoft.Xna.Framework.Media;
 
 namespace CannonGame
 {
-    public class GameLevel : GameState
+    public class GameLevel : GameState //Skrevet av Ketil Almquist med litt fra Jan Arild Brobak
     {
         public static GameLevel Instance = null;
         public Cannon niceCannon = null;

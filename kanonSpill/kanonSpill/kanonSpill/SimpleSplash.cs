@@ -8,7 +8,7 @@ using Microsoft.Xna.Framework;
 
 namespace CannonGame
 {
-    public class SimpleSplash : GameState
+    public class SimpleSplash : GameState 
     {
         Texture2D splashTexture;
         int NextState = 3;

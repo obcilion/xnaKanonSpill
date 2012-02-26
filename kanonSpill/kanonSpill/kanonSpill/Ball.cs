@@ -70,7 +70,7 @@ namespace CannonGame
 
          
         }
-        public void obstacleCollision(SolidObstacle o)
+        public void obstacleCollision(SolidObstacle o) //Skrevet av Ketil Almquist
         {
             if (intersects(o.obstacle))
             {
@@ -96,7 +96,7 @@ namespace CannonGame
 
             }
         }
-        bool intersects(Rectangle rect)
+        bool intersects(Rectangle rect) //Tatt fra nettet og modifisert for bruk
         {
             Vector2 circleDistance;
             circleDistance.X = Math.Abs(Position.X - rect.X - rect.Width / 2);

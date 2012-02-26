@@ -13,7 +13,6 @@ namespace CannonGame
 {
     public class jaLevel3 : GameLevel
     {
-        static int levelIndex = 3;
 
         public jaLevel3(SpriteBatch spriteBatch, ContentManager content, int gameStateIndex)
             : base(spriteBatch, content, gameStateIndex)

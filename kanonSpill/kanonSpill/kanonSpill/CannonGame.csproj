@@ -78,6 +78,7 @@
     <Compile Include="Ball.cs" />
     <Compile Include="GameState.cs" />
     <Compile Include="GameLevel.cs" />
+    <Compile Include="levelSelect.cs" />
     <Compile Include="Levels\jaLevel4.cs" />
     <Compile Include="Levels\Level1.cs" />
     <Compile Include="Levels\Level2.cs" />

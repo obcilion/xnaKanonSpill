@@ -13,7 +13,6 @@ namespace CannonGame
 {
     public class Level2 : GameLevel
     {
-        static int levelIndex = 2;
 
         public Level2(SpriteBatch spriteBatch, ContentManager content, int gameStateIndex)
             : base(spriteBatch, content, gameStateIndex)

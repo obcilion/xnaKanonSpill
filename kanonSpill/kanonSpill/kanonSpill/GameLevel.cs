@@ -27,7 +27,7 @@ namespace CannonGame
         
         SoundEffect win;
         SoundEffect lose;
-<<<<<<< HEAD
+
         public GameLevel(SpriteBatch spriteBatch, ContentManager content, int gameStateIndex)
             : base(spriteBatch, content, gameStateIndex)
         {
@@ -96,13 +96,15 @@ namespace CannonGame
                 if ((niceBall.Position - target.Position).Length() < target.radius - niceBall.radius && niceCannon.hasShot)
                 {
                     win.Play();
-                    Reset();
+                    //ToDo: set to win splashscreen
+                    CannonGame.ChangeState(0);
                     //Win
                 }
                 if (((niceBall.Position - badBall.Position).Length() < (niceBall.radius + badBall.radius) || niceBall.Velocity == Vector2.Zero) && niceCannon.hasShot)
                 {
                     lose.Play();
-                    Reset();
+                    //ToDo: set to lose splashscreen
+                    CannonGame.ChangeState(0);
                     //lose
                 }
             }

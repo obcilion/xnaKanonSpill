@@ -13,7 +13,7 @@ namespace CannonGame
 {
     public class jaLevel3 : GameLevel
     {
-        
+
         public jaLevel3(SpriteBatch spriteBatch, ContentManager content, int gameStateIndex)
             : base(spriteBatch, content, gameStateIndex)
         {

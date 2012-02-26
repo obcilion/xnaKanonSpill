@@ -18,6 +18,7 @@ namespace CannonGame
             SpriteBatch = spriteBatch;
             Content = content;
         }
+        public void Reset() { }
 
         public virtual void Update() { }
         public virtual void Draw() { }

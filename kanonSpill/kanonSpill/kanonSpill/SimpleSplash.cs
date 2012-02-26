@@ -11,7 +11,7 @@ namespace CannonGame
     public class SimpleSplash : GameState
     {
         Texture2D splashTexture;
-        int NextState = 4;
+        int NextState = 3;
         public SimpleSplash(SpriteBatch spriteBatch, ContentManager content, String texture)
             : base(spriteBatch, content)
         {

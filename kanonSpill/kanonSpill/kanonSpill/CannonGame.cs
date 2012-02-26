@@ -78,10 +78,10 @@ namespace CannonGame
             GameStates.Add(new SimpleSplash(SpriteBatch, Content, "Images/introScreen", 0));
             GameStates.Add(new menuSplash(SpriteBatch, Content, "Images/introScreen", 
                 "Images/playButton", "Images/howToPlayButton", "Images/creditsButton", "Images/quitButton", 1));
-            GameStates.Add(new Level1(SpriteBatch, Content));
-            GameStates.Add(new Level2(SpriteBatch, Content));
-            GameStates.Add(new jaLevel3(SpriteBatch, Content));
-            GameStates.Add(new jaLevel4(SpriteBatch, Content));
+            GameStates.Add(new Level1(SpriteBatch, Content, 2));
+            GameStates.Add(new Level2(SpriteBatch, Content, 3));
+            GameStates.Add(new jaLevel3(SpriteBatch, Content, 4));
+            GameStates.Add(new jaLevel4(SpriteBatch, Content, 5));
 
             ActiveGameState = GameStates[0];
             
@@ -115,18 +115,18 @@ namespace CannonGame
             FrameInfo.MouseState = Mouse.GetState();
 
 
+            if (NextState.CurrentGameStateIndex == 0 && GameStates[0])
+                
+                
+            
+
             if (NextState != null)
             {
                 ActiveGameState = NextState;
                 ActiveGameState.Reset();
-                previousGameStateIndex = NextState.PreviousGameStateIndex;
+                previousGameStateIndex = NextState.CurrentGameStateIndex;
                 NextState = null;
             }
-            /*if (GameStateIndex == 0 && GameStates[GameStateIndex].SplashFinished)
-            {
-                ActiveGameState = GameStates[3];
-                GameStateIndex = 3;
-            }*/
 
             ActiveGameState.Update();
 

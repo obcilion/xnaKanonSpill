@@ -11,20 +11,22 @@ namespace CannonGame
     public class SimpleSplash : GameState 
     {
         Texture2D splashTexture;
+        public static bool IsFinished;
         
         public SimpleSplash(SpriteBatch spriteBatch, ContentManager content, String texture, int gameStateIndex)
             : base(spriteBatch, content, gameStateIndex)
         {
             splashTexture = content.Load<Texture2D>(texture);
+            IsFinished = false;
         }
 
-        /*public override void Update()
+        public override void Update()
         {
 
             if ((Frameinfo.PreviousMouseState.LeftButton == Microsoft.Xna.Framework.Input.ButtonState.Pressed) &&
                 (Frameinfo.MouseState.LeftButton == Microsoft.Xna.Framework.Input.ButtonState.Released))
-                CannonGame.ChangeState(NextState);
-        }*/
+                IsFinished = true;
+        }
 
         public override void Draw()
         {

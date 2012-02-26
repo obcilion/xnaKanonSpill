@@ -10,7 +10,8 @@ namespace CannonGame
 {
     public class Level1 : GameLevel
     {
-      
+
+        int gameLevel;
 
         public Level1(SpriteBatch spriteBatch, ContentManager content, int gameStateIndex)
             : base(spriteBatch, content, gameStateIndex)
@@ -27,6 +28,7 @@ namespace CannonGame
 
             //  TODO: Sett inn prefererte posisjonsverdien til målet her. (radiuseen til målet er 32, posisjonen settes i forhold til dens sentrum)
             target.Position = new Vector2(40, 300);
+            gameLevel = gameStateIndex;
         }
 
         public override void Draw()
@@ -42,6 +44,8 @@ namespace CannonGame
 
         public override void Update()
         {
+            CannonGame.PreviousLevel = gameLevel;
+
             base.Update();
             foreach (SolidObstacle o in Objects)
             {

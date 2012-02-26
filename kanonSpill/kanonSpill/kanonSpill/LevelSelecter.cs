@@ -66,16 +66,16 @@ namespace CannonGame
             SpriteBatch.Draw(menu, menuButton, Color.White);
 
             SpriteBatch.Draw(button, level1, Color.Blue);
-            SpriteBatch.DrawString(font, "1", new Vector2(level1.X + 12, level1.Y + 12), Color.Red, 0, Vector2.Zero, 1f, SpriteEffects.None, 1f);
+            SpriteBatch.DrawString(font, "1", new Vector2(level1.X + 15, level1.Y + 12), Color.Red, 0, Vector2.Zero, 1f, SpriteEffects.None, 1f);
 
             SpriteBatch.Draw(button, level2, Color.Blue);
             SpriteBatch.DrawString(font, "2", new Vector2(level2.X + 15, level2.Y + 12), Color.Red, 0, Vector2.Zero, 1f, SpriteEffects.None, 1f);
 
             SpriteBatch.Draw(button, level3, Color.Blue);
-            SpriteBatch.DrawString(font, "3", new Vector2(level3.X + 12, level3.Y + 12), Color.Red, 0, Vector2.Zero, 1f, SpriteEffects.None, 1f);
+            SpriteBatch.DrawString(font, "3", new Vector2(level3.X + 15, level3.Y + 12), Color.Red, 0, Vector2.Zero, 1f, SpriteEffects.None, 1f);
 
             SpriteBatch.Draw(button, level4, Color.Blue);
-            SpriteBatch.DrawString(font, "4", new Vector2(level4.X + 12, level4.Y + 12), Color.Red, 0, Vector2.Zero, 1f, SpriteEffects.None, 1f);
+            SpriteBatch.DrawString(font, "4", new Vector2(level4.X + 15, level4.Y + 12), Color.Red, 0, Vector2.Zero, 1f, SpriteEffects.None, 1f);
         }
     }
 }

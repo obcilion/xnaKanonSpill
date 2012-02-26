@@ -35,7 +35,7 @@ namespace CannonGame
             Instance = this;
             
             // TODO: use Content to load your game content here
-            CannonGame.PreviousLevel = gameStateIndex;
+            
             score = 0;
 
             fireButtonTexture = Content.Load<Texture2D>(@"Images\fireButton");

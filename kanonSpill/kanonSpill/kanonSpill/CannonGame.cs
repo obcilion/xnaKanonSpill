@@ -91,8 +91,8 @@ namespace CannonGame
                 "Images/tryAgainButton", "Images/selectLevelButton", "Images/menuButton", "Images/RAGEQUITbutton", 7));
             GameStates.Add(new Level1(SpriteBatch, Content, 8));
             GameStates.Add(new Level2(SpriteBatch, Content, 9));
-            GameStates.Add(new jaLevel3(SpriteBatch, Content, 10));
-            GameStates.Add(new jaLevel4(SpriteBatch, Content, 11));
+            GameStates.Add(new Level3(SpriteBatch, Content, 10));
+            GameStates.Add(new Level4(SpriteBatch, Content, 11));
 
             ActiveGameState = GameStates[0];
             

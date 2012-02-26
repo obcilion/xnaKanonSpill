@@ -59,7 +59,7 @@ namespace CannonGame
                     if (CurrentGameStateIndex == 1)
                         CannonGame.ChangeState(2);
                     else if (CurrentGameStateIndex == 6)
-                        CannonGame.ChangeState(CurrentGameStateIndex + 1);
+                        CannonGame.ChangeState(CannonGame.PreviousLevel + 1);
                     else if (CurrentGameStateIndex == 7)
                         CannonGame.ChangeState(5);
                 }

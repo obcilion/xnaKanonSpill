@@ -7,7 +7,7 @@ using Microsoft.Xna.Framework.Content;
 
 namespace CannonGame
 {
-    public class GameState
+    public class GameState //Skrevet hovedsaklig av Ketil Almquist
     {
         protected SpriteBatch SpriteBatch;
         protected ContentManager Content;

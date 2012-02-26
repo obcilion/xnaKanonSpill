@@ -12,7 +12,7 @@ using Microsoft.Xna.Framework.Media;
 
 namespace CannonGame
 {
-    public class GameObject
+    public class GameObject //Skrevet hovedsaklig av Jørund Mjøset Bogen og Raymond Gulbrandsen
     {
         protected Texture2D texture;
         public Vector2 position;

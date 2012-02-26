@@ -11,7 +11,7 @@ using Microsoft.Xna.Framework.Media;
 
 namespace CannonGame
 {
-    public class GameLevel : GameState //Skrevet av Ketil Almquist med litt fra Jan Arild Brobak
+    public class GameLevel : GameState //Skrevet hovedsaklig av Ketil Almquist, Jan Arild Brobak og Øystein Anthonsen
     {
         public static GameLevel Instance = null;
         public Cannon niceCannon = null;
@@ -100,12 +100,12 @@ namespace CannonGame
                 if ((niceBall.Position - target.Position).Length() < target.radius - niceBall.radius && niceCannon.hasShot)
                 {
                     win.Play();
-                    CannonGame.ChangeState(6);
+                    CannonGame.ChangeState(5);
                 }
                 if (((niceBall.Position - badBall.Position).Length() < (niceBall.radius + badBall.radius) || niceBall.Velocity == Vector2.Zero) && niceCannon.hasShot)
                 {
                     lose.Play();
-                    CannonGame.ChangeState(7);
+                    CannonGame.ChangeState(6);
                 }
             }
         }

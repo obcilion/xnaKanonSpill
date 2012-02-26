@@ -9,12 +9,23 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
 
+/*Bakgrunnsbilder laget av Øystein Anthonsen
+ * Spillsprites laget av Raymond Gulbrandsen
+ * Lyder laget av Jan Arild Broboak
+ * Konsept laget av alle
+ * 
+ * Noe problemer på gruppa...
+ * Bare noen timer til så hadde dette "spillet blitt ganske mer komplett"
+ */
+
+
+
 namespace CannonGame
 {
     /// <summary>
     /// This is the main type for your game
     /// </summary>
-    public class CannonGame : Microsoft.Xna.Framework.Game
+    public class CannonGame : Microsoft.Xna.Framework.Game //Skrevet hovedsaklig av Ketil Almquist, Jan Arild Brobak, Øystein Anthonsen, Jørund Mjøset Bogen og Raymond Gulbrandsen
     {
         public static CannonGame Instance = null;
 
@@ -81,18 +92,17 @@ namespace CannonGame
             GameStates.Add(new SimpleSplash(SpriteBatch, Content, "Images/introScreen", 0));
             GameStates.Add(new menuSplash(SpriteBatch, Content, "Images/menu", 
                 "Images/playButton", "Images/howToPlayButton", "Images/creditsButton", "Images/quitButton", 1));
-            GameStates.Add(new SimpleSplash(SpriteBatch, Content, "Images/introScreen", 2));
+            GameStates.Add(new SimpleSplash(SpriteBatch, Content, "Images/howToPlay", 2));
             GameStates.Add(new SimpleSplash(SpriteBatch, Content, "Images/createdBy", 3));
-            GameStates.Add(new SimpleSplash(SpriteBatch, Content, "Images/createdBy", 4));
-            GameStates.Add(new LevelSelecter(SpriteBatch, Content, "Images/selectLevel", 5));
+            GameStates.Add(new LevelSelecter(SpriteBatch, Content, "Images/selectLevel", 4));
             GameStates.Add(new menuSplash(SpriteBatch, Content, "Images/levelCleared",
-                "Images/replayButton", "Images/nextLevel", "Images/selectLevelButton2", "Images/menuButton2", 6));
+                "Images/replayButton", "Images/nextLevel", "Images/selectLevelButton2", "Images/menuButton2", 5));
             GameStates.Add(new menuSplash(SpriteBatch, Content, "Images/gameOver",
-                "Images/tryAgainButton", "Images/selectLevelButton", "Images/menuButton", "Images/RAGEQUITbutton", 7));
-            GameStates.Add(new Level1(SpriteBatch, Content, 8));
-            GameStates.Add(new Level2(SpriteBatch, Content, 9));
-            GameStates.Add(new Level3(SpriteBatch, Content, 10));
-            GameStates.Add(new Level4(SpriteBatch, Content, 11));
+                "Images/tryAgainButton", "Images/selectLevelButton", "Images/menuButton", "Images/RAGEQUITbutton", 6));
+            GameStates.Add(new Level1(SpriteBatch, Content, 7));
+            GameStates.Add(new Level2(SpriteBatch, Content, 8));
+            GameStates.Add(new Level3(SpriteBatch, Content, 9));
+            GameStates.Add(new Level4(SpriteBatch, Content, 10));
 
             ActiveGameState = GameStates[0];
             

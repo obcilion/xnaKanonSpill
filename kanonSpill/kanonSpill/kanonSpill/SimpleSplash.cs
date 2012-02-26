@@ -9,7 +9,7 @@ using Microsoft.Xna.Framework;
 
 namespace CannonGame
 {
-    public class SimpleSplash : GameState 
+    public class SimpleSplash : GameState //Skrevet hovedsaklig Jan Arild Brobak
     {
         Texture2D splashTexture;
         
@@ -28,10 +28,8 @@ namespace CannonGame
                 if (CurrentGameStateIndex == 0)
                     CannonGame.ChangeState(1);
                 else if (CurrentGameStateIndex == 2)
-                    CannonGame.ChangeState(3);
-                else if (CurrentGameStateIndex == 3)
                     CannonGame.ChangeState(1);
-                else if (CurrentGameStateIndex == 4)
+                else if (CurrentGameStateIndex == 3)
                     CannonGame.ChangeState(1);
             }
 

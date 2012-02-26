@@ -9,7 +9,7 @@ using Microsoft.Xna.Framework;
 
 namespace CannonGame
 {
-    public class LevelSelecter : SimpleSplash
+    public class LevelSelecter : SimpleSplash //Skrevet Jan Arild Brobak og Øystein Anthonsen
     {
         Rectangle level1;
         Rectangle level2;
@@ -45,13 +45,13 @@ namespace CannonGame
                 (Frameinfo.MouseState.LeftButton == ButtonState.Released))
             {
                 if (level1.Contains(mouse))
-                    CannonGame.ChangeState(8);
+                    CannonGame.ChangeState(7);
                 else if (level2.Contains(mouse))
+                    CannonGame.ChangeState(8);
+                else if (level3.Contains(mouse))
                     CannonGame.ChangeState(9);
                 else if (level3.Contains(mouse))
                     CannonGame.ChangeState(10);
-                else if (level3.Contains(mouse))
-                    CannonGame.ChangeState(11);
                 else if (menuButton.Contains(mouse))
                     CannonGame.ChangeState(1);
             }

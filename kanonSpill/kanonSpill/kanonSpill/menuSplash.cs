@@ -9,7 +9,7 @@ using Microsoft.Xna.Framework;
 
 namespace CannonGame
 {
-    class menuSplash : SimpleSplash
+    class menuSplash : SimpleSplash //Skrevet hovedsaklig Jan Arild Brobak
     {
         Rectangle button1;
         Texture2D button1Texture;
@@ -46,10 +46,10 @@ namespace CannonGame
                 if (button1.Contains(mouse))
                 {
                     if (CurrentGameStateIndex == 1)
-                      CannonGame.ChangeState(5);
-                    else if (CurrentGameStateIndex == 6)
+                      CannonGame.ChangeState(4);
+                    else if (CurrentGameStateIndex == 5)
                        CannonGame.ChangeState(CannonGame.PreviousLevel);
-                    else if (CurrentGameStateIndex == 7)
+                    else if (CurrentGameStateIndex == 6)
                        CannonGame.ChangeState(CannonGame.PreviousLevel);
                 }
 
@@ -58,19 +58,19 @@ namespace CannonGame
                 {
                     if (CurrentGameStateIndex == 1)
                         CannonGame.ChangeState(2);
-                    else if (CurrentGameStateIndex == 6)
+                    else if (CurrentGameStateIndex == 5)
                         CannonGame.ChangeState(CannonGame.PreviousLevel + 1);
-                    else if (CurrentGameStateIndex == 7)
-                        CannonGame.ChangeState(5);
+                    else if (CurrentGameStateIndex == 6)
+                        CannonGame.ChangeState(4);
                 }
 
                 else if (button3.Contains(mouse))
                 {
                     if (CurrentGameStateIndex == 1)
                         CannonGame.ChangeState(3);
+                    else if (CurrentGameStateIndex == 5)
+                        CannonGame.ChangeState(4);
                     else if (CurrentGameStateIndex == 6)
-                        CannonGame.ChangeState(5);
-                    else if (CurrentGameStateIndex == 7)
                         CannonGame.ChangeState(1);
                 }
 
@@ -78,9 +78,9 @@ namespace CannonGame
                 {
                     if (CurrentGameStateIndex == 1)
                         CannonGame.ExitGame = true;
-                    else if (CurrentGameStateIndex == 6)
+                    else if (CurrentGameStateIndex == 5)
                         CannonGame.ChangeState(1);
-                    else if (CurrentGameStateIndex == 7)
+                    else if (CurrentGameStateIndex == 6)
                         CannonGame.ExitGame = true;
                 }
             

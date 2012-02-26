@@ -87,7 +87,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="CannonGame.cs" />
-    <Compile Include="Scores.cs" />
     <Compile Include="SolidObstacle.cs" />
     <Compile Include="Target.cs" />
   </ItemGroup>

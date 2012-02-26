@@ -12,7 +12,7 @@ using Microsoft.Xna.Framework.Media;
 
 namespace CannonGame
 {
-    public class Cannon : GameObject
+    public class Cannon : GameObject //Skrevet av Jan Arild Brobak med litt fra Ketil Almquist
     {
         Rectangle cannonRect;
         public Vector2 Direction;
@@ -37,7 +37,7 @@ namespace CannonGame
 
         public new void Draw(SpriteBatch spriteBatch)
         {
-            spriteBatch.Draw(texture, position, null, Color.White, rotationAngle, origin, 1.0f, SpriteEffects.None, 1f);
+            spriteBatch.Draw(texture, position, null, Color.White, rotationAngle, origin, 1.0f, SpriteEffects.None, 0.9f);
         }
         public void Control()
         {
@@ -60,6 +60,7 @@ namespace CannonGame
                 Direction = new Vector2(Frameinfo.MouseState.X - Position.X, Frameinfo.MouseState.Y - Position.Y);
                 Direction.Normalize();
                 Direction = Vector2.Clamp(Direction, new Vector2(-1, -1), new Vector2(1, 0));
+                Direction.Normalize();
                 updateRotation();
                 
             }

@@ -13,7 +13,7 @@ using Microsoft.Xna.Framework.Media;
 namespace CannonGame
 {
 
-    public class SolidObstacle : GameObject
+    public class SolidObstacle : GameObject // Skrevet av Jørund Mjøset Bogen og Raymond Gulbrandsen
     {
         float height;
         float width;

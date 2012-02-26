@@ -20,7 +20,7 @@ namespace CannonGame
             Content = content;
             PreviousGameStateIndex = previousGameStateIndex;
         }
-        public void Reset() { }
+        public virtual void Reset() { }
 
         public virtual void Update() { }
         public virtual void Draw() { }

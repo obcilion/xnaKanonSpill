@@ -31,9 +31,8 @@ namespace CannonGame
         {
             wallCollisionCheck();
             Velocity *= friction;
-
-            if (Velocity.Length() > 0.1)
-                Position += Velocity;
+            if (Velocity.Length() < 0.1)  Velocity = Vector2.Zero;
+            Position += Velocity;
         }
 
         public new void Draw(SpriteBatch spriteBatch)
@@ -71,7 +70,7 @@ namespace CannonGame
 
          
         }
-        public void obstacleCollision(SolidObstacle o)
+        public void obstacleCollision(SolidObstacle o) //Skrevet av Ketil Almquist
         {
             if (intersects(o.obstacle))
             {
@@ -97,7 +96,7 @@ namespace CannonGame
 
             }
         }
-        bool intersects(Rectangle rect)
+        bool intersects(Rectangle rect) //Tatt fra nettet og modifisert for bruk
         {
             Vector2 circleDistance;
             circleDistance.X = Math.Abs(Position.X - rect.X - rect.Width / 2);

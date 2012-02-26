@@ -121,13 +121,13 @@
       <Importer>WmaImporter</Importer>
       <Processor>SongProcessor</Processor>
     </Compile>
-    <Compile Include="Sound\Cannon_Gamw_Lose.wav">
-      <Name>Cannon_Gamw_Lose</Name>
+    <Compile Include="Sound\Cannon_Game_Lose.wav">
+      <Name>Cannon_Game_Lose</Name>
       <Importer>WavImporter</Importer>
       <Processor>SoundEffectProcessor</Processor>
     </Compile>
-    <Compile Include="Sound\Cannon_Gamw_Win.wav">
-      <Name>Cannon_Gamw_Win</Name>
+    <Compile Include="Sound\Cannon_Game_Win.wav">
+      <Name>Cannon_Game_Win</Name>
       <Importer>WavImporter</Importer>
       <Processor>SoundEffectProcessor</Processor>
     </Compile>
@@ -136,6 +136,11 @@
     <None Include="Files\saveFile.txt">
       <Name>saveFile</Name>
     </None>
+    <Compile Include="Font.spritefont">
+      <Name>Font</Name>
+      <Importer>FontDescriptionImporter</Importer>
+      <Processor>FontDescriptionProcessor</Processor>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Images\quitButton.png">

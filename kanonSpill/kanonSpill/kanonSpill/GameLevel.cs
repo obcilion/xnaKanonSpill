@@ -21,7 +21,7 @@ namespace CannonGame
         public Target target = null;
         public Rectangle shoot;
         Texture2D fireButtonTexture;
-        protected List<GameObject> Objects = new List<GameObject>();
+        protected List<GameObject> Objects;
         public int score;
 
         public GameLevel(SpriteBatch spriteBatch, ContentManager content)
@@ -39,13 +39,20 @@ namespace CannonGame
             badBall = new Ball(Content.Load<Texture2D>("Images/slemBall"));
             target = new Target(Content.Load<Texture2D>("Images/mål"));
             shoot = new Rectangle(480 - 48, 450, 48, 48);
-            
+            score = 0;
+            Objects = new List<GameObject>();            
             
         }
-
+        public void Reset()
+        {
+            niceCannon = new Cannon(Content.Load<Texture2D>("Images/kanon"), new Vector2(240, 784), new Vector2(0, -1));
+            badCannon = new Cannon(Content.Load<Texture2D>("Images/slemKanon"), new Vector2(240, 16), new Vector2(0, 1));
+            niceBall = new Ball(Content.Load<Texture2D>("Images/ball"));
+            badBall = new Ball(Content.Load<Texture2D>("Images/slemBall"));
+            score = 0;
+        }
         public override void Update()
         {
-            score = (int)niceBall.Velocity.Length() * 100;
 
             if (!niceCannon.hasShot)
             {
@@ -79,11 +86,13 @@ namespace CannonGame
                 badBall.update();
                 if ((niceBall.Position - target.Position).Length() < target.radius - niceBall.radius && niceCannon.hasShot)
                 {
-                    bool win = true;
+                    Reset();
+                    score = (int)(niceBall.Velocity.Length()*1000);
                     //Win
                 }
-                if ((niceBall.Position - badBall.Position).Length() < (niceBall.radius + badBall.radius) && niceCannon.hasShot)
+                if (((niceBall.Position - badBall.Position).Length() < (niceBall.radius + badBall.radius) || niceBall.Velocity == Vector2.Zero) && niceCannon.hasShot)
                 {
+                    Reset();
                     bool lose = true;
                     //lose
                 }

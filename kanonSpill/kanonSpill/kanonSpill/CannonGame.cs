@@ -116,6 +116,7 @@ namespace CannonGame
             if (NextState != null)
             {
                 ActiveGameState = NextState;
+                ActiveGameState.Reset();
                 NextState = null;
             }
             /*if (GameStateIndex == 0 && GameStates[GameStateIndex].SplashFinished)

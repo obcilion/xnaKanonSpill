@@ -25,6 +25,9 @@ namespace CannonGame
         SpriteFont Font;
         public int score;
 
+        SoundEffect win;
+        SoundEffect lose;
+
         public GameLevel(SpriteBatch spriteBatch, ContentManager content)
             : base(spriteBatch, content)
         {
@@ -35,6 +38,9 @@ namespace CannonGame
             fireButtonTexture = Content.Load<Texture2D>(@"Images\fireButton");
 
             Font = Content.Load<SpriteFont>("Font");
+
+            win = Content.Load<SoundEffect>("Sound/Cannon_Game_Win");
+            lose = Content.Load<SoundEffect>("Sound/Cannon_Game_Lose");
 
             niceCannon = new Cannon(Content.Load<Texture2D>("Images/kanon"), new Vector2(240, 784), new Vector2(0, -1));
             badCannon = new Cannon(Content.Load<Texture2D>("Images/slemKanon"), new Vector2(240, 16), new Vector2(0, 1));
@@ -89,11 +95,13 @@ namespace CannonGame
                 badBall.update();
                 if ((niceBall.Position - target.Position).Length() < target.radius - niceBall.radius && niceCannon.hasShot)
                 {
+                    win.Play();
                     Reset();
                     //Win
                 }
                 if (((niceBall.Position - badBall.Position).Length() < (niceBall.radius + badBall.radius) || niceBall.Velocity == Vector2.Zero) && niceCannon.hasShot)
                 {
+                    lose.Play();
                     Reset();
                     //lose
                 }

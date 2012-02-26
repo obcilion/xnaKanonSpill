@@ -23,11 +23,14 @@ namespace CannonGame
 
         FrameInfo FrameInfo = FrameInfo.Instance;
 
+        public static bool ExitGame = false;
+
         List<GameState> GameStates = new List<GameState>();
         GameState ActiveGameState = null;
 
         GameState NextState = null;
-        public static int previousGameStateIndex;
+        public static int PreviousLevel;
+
 
         public static void ChangeState(int index)
         {
@@ -76,12 +79,20 @@ namespace CannonGame
             SpriteBatch = new SpriteBatch(GraphicsDevice);
 
             GameStates.Add(new SimpleSplash(SpriteBatch, Content, "Images/introScreen", 0));
-            GameStates.Add(new menuSplash(SpriteBatch, Content, "Images/introScreen", 
+            GameStates.Add(new menuSplash(SpriteBatch, Content, "Images/mainMenu", 
                 "Images/playButton", "Images/howToPlayButton", "Images/creditsButton", "Images/quitButton", 1));
-            GameStates.Add(new Level1(SpriteBatch, Content, 2));
-            GameStates.Add(new Level2(SpriteBatch, Content, 3));
-            GameStates.Add(new jaLevel3(SpriteBatch, Content, 4));
-            GameStates.Add(new jaLevel4(SpriteBatch, Content, 5));
+            GameStates.Add(new SimpleSplash(SpriteBatch, Content, "Images/howToPlay1", 2));
+            GameStates.Add(new SimpleSplash(SpriteBatch, Content, "Images/howToPlay2", 3));
+            GameStates.Add(new SimpleSplash(SpriteBatch, Content, "Images/credits", 4));
+            GameStates.Add(new LevelSelecter(SpriteBatch, Content, "", 5));
+            GameStates.Add(new menuSplash(SpriteBatch, Content, "Images/winSplash",
+                "Images/playButton", "Images/howToPlayButton", "Images/creditsButton", "Images/quitButton", 6));
+            GameStates.Add(new menuSplash(SpriteBatch, Content, "Images/loseSplash",
+                "Images/playButton", "Images/howToPlayButton", "Images/creditsButton", "Images/quitButton", 7));
+            GameStates.Add(new Level1(SpriteBatch, Content, 8));
+            GameStates.Add(new Level2(SpriteBatch, Content, 9));
+            GameStates.Add(new jaLevel3(SpriteBatch, Content, 10));
+            GameStates.Add(new jaLevel4(SpriteBatch, Content, 11));
 
             ActiveGameState = GameStates[0];
             
@@ -105,7 +116,7 @@ namespace CannonGame
         {
             // Allows the game to exit
             KeyboardState stat = Keyboard.GetState();
-            if (stat.IsKeyDown(Keys.Escape))
+            if (stat.IsKeyDown(Keys.Escape) || ExitGame)
             {
                 this.Exit();
             }
@@ -113,18 +124,12 @@ namespace CannonGame
 
             //Henter inn mouseState på starten av Update, så den ikke kan endre seg underveis
             FrameInfo.MouseState = Mouse.GetState();
-
-
-            if (NextState.CurrentGameStateIndex == 0 && GameStates[0])
-                
-                
             
 
             if (NextState != null)
-            {
+            {         
                 ActiveGameState = NextState;
                 ActiveGameState.Reset();
-                previousGameStateIndex = NextState.CurrentGameStateIndex;
                 NextState = null;
             }
 

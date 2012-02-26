@@ -22,8 +22,9 @@ namespace CannonGame
         public Rectangle shoot;
         Texture2D fireButtonTexture;
         protected List<GameObject> Objects;
-        SpriteFont Font;
+        SpriteFont font;
         public int score;
+        
         
         SoundEffect win;
         SoundEffect lose;
@@ -34,10 +35,11 @@ namespace CannonGame
             Instance = this;
             
             // TODO: use Content to load your game content here
-           // background = Content.Load<Texture2D>("Images/woodTable");
-            fireButtonTexture = Content.Load<Texture2D>(@"Images\fireButton");
+            CannonGame.PreviousLevel = gameStateIndex;
+            score = 0;
 
-            Font = Content.Load<SpriteFont>("Font");
+            fireButtonTexture = Content.Load<Texture2D>(@"Images\fireButton");
+            font = Content.Load<SpriteFont>("Font");
 
             win = Content.Load<SoundEffect>("Sound/Cannon_Game_Win");
             lose = Content.Load<SoundEffect>("Sound/Cannon_Game_Lose");
@@ -48,8 +50,9 @@ namespace CannonGame
             badBall = new Ball(Content.Load<Texture2D>("Images/slemBall"));
             target = new Target(Content.Load<Texture2D>("Images/mål"));
             shoot = new Rectangle(480 - 48, 450, 48, 48);
-            score = 0;
+           
             Objects = new List<GameObject>();
+            
             
         }
         public override void Reset()
@@ -93,33 +96,29 @@ namespace CannonGame
                 score = (int)(niceBall.Velocity.Length() * 1000);
                 niceBall.update();
                 badBall.update();
+
                 if ((niceBall.Position - target.Position).Length() < target.radius - niceBall.radius && niceCannon.hasShot)
                 {
                     win.Play();
-                    //ToDo: set to win splashscreen
-                    CannonGame.ChangeState(0);
-                    //Win
+                    CannonGame.ChangeState(6);
                 }
                 if (((niceBall.Position - badBall.Position).Length() < (niceBall.radius + badBall.radius) || niceBall.Velocity == Vector2.Zero) && niceCannon.hasShot)
                 {
                     lose.Play();
-                    //ToDo: set to lose splashscreen
-                    CannonGame.ChangeState(0);
-                    //lose
+                    CannonGame.ChangeState(7);
                 }
             }
         }
 
         public override void Draw()
         {
-            //SpriteBatch.Draw(background, Vector2.Zero, Color.White);
             target.Draw(SpriteBatch);
             niceBall.Draw(SpriteBatch);
             badBall.Draw(SpriteBatch);
             niceCannon.Draw(SpriteBatch);
             badCannon.Draw(SpriteBatch);
             SpriteBatch.Draw(fireButtonTexture, shoot,null, Color.White,0,Vector2.Zero,SpriteEffects.None,1);
-            SpriteBatch.DrawString(Font, "Score: " + score.ToString(), new Vector2(15, 15), Color.Red,0,Vector2.Zero,1f,SpriteEffects.None,1f);
+            SpriteBatch.DrawString(font, "Score: " + score.ToString(), new Vector2(15, 15), Color.Red,0,Vector2.Zero,1f,SpriteEffects.None,1f);
             
         }
 
